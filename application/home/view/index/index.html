@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试</title>
+    <link rel="stylesheet" href="__PUBLIC__/common/bootstrap.min.css"/>
+    <script src="__PUBLIC__/common/jquery1.11.0.min.js"></script>
+    <script src="__PUBLIC__/common/bootstrap.min.js"></script>
+</head>
+<body>
+<table class="table table-striped">
+    <tr>
+        <td>ID</td>
+        <td>姓名</td>
+        <td>密码</td>
+    </tr>
+    {volist name="list" id="vo"}
+    <tr>
+        <td>{$vo.id}</td>
+        <td>{$vo.username}</td>
+        <td>{$vo.pwd}</td>
+    </tr>
+    {/volist}
+</table>
+{$list->render()}
+</body>
+</html>

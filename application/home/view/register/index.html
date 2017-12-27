@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>注册</title>
+    <link rel="stylesheet" href="__PUBLIC__/common/bootstrap.min.css"/>
+    <script src="__PUBLIC__/common/jquery1.11.0.min.js"></script>
+    <script src="__PUBLIC__/common/bootstrap.min.js"></script>
+    <style type="text/css">
+        #myDiv{
+            margin:100px auto;
+            height:500px;
+        }
+        .bg{background:url('__PUBLIC__/common/a.jpg') no-repeat center / cover;
+            position: fixed;
+            left:0px;
+            right:0px;
+            top:0px;
+            bottom:0px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="container">
+    <div class="col-md-7"></div>
+    <div id="myDiv" class="col-md-5">
+        <form class="form-horizontal" action="home/Login/login" method="post">
+            <div class="form-group">
+                <label for="inputEmail3" class="col-sm-3 control-label">姓名：</label>
+                <div class="col-sm-8">
+                    <input name="name" type="text" class="form-control" id="inputEmail3" placeholder="点此输入姓名"><span style="display: none;">用户名应该为3-20位之间</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-3 control-label">密码：</label>
+                <div class="col-sm-8">
+                    <input name="pwd" type="password" class="form-control" id="inputPassword3" placeholder="点此输入密码">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-3 control-label">确认密码：</label>
+                <div class="col-sm-8">
+                    <input name="pwd" type="password" class="form-control" id="inputPassword3" placeholder="请再次确认密码">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-8">
+                    <button type="submit" class="btn btn-default">注册</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    $(function(){
+        // 验证用户名
+        $('input[name="name"]').focus(function(){
+            $(this).next().css('display','in-block');
+        }).blur(function(){
+            if($(this).val().length >= 3 && $(this).val().length <=12 && $(this).val()!=''){
+                $(this).next().text('输入成功').removeClass('state1').addClass('state4');
+                ok1=true;
+            }else{
+                $(this).next().text('用户名应该为3-20位之间').removeClass('state1').addClass('state3');
+            }
+
+        });
+    })
+</script>
+</body>
+</html>
