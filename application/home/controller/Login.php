@@ -9,7 +9,7 @@ namespace app\home\controller;
 use think\Controller;
 use think\Db;
 
-class Index extends Controller{
+class Login extends Controller{
     public function index(){
         $list = Db::table('ceshi')->paginate(5);
         $this->assign('list',$list);
@@ -23,32 +23,13 @@ class Index extends Controller{
         return $id;
     }
 
-    public function hongjiu(){
+    public function login(){
         return $this->fetch();
     }
-    public function Group(){
-        return $this->fetch();
-    }
-    public function zhixun(){
-        return $this->fetch();
-    }
-    public function zhuanjia(){
-        return $this->fetch();
-    }
-     public function ZXxianqin(){
-        return $this->fetch();
-    }
-    public function lianxi(){
-        return $this->fetch();
-    }
-    public function cpzhongxin(){
-            return $this->fetch();
-    }
-    public function cpxianqin(){
-        return $this->fetch();
-    }
-    public function lunbo(){
+     public function hehe(){
             return $this->fetch();
         }
+
+
 
 }

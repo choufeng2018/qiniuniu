@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    {include file="public/js"}
+    <title>产品详情</title>
+    <style>
+        .banner{height:100%;}
+        .banner img{width: 100%;}
+        /*.cp-top>p>b{font-weight:normal;}*/
+        .breadcrumb {
+            padding: 20px 15px;
+             background:none;
+            border-radius: 0px;
+            font-size:18px;
+
+        }
+        .breadcrumb > .active {
+            color: #a55c3f;
+        }
+
+
+    </style>
+</head>
+<body>
+<header>
+    {include file="public/header"}
+</header>
+<div class="banner">
+    <img class="img-responsive" src="__PUBLIC__/common/images/banner1.jpg">
+</div>
+<div class="container">
+    <div class="row">
+        <ol class="breadcrumb">
+            <li><a href="#">产品中心</a></li>
+            <li class="active">产品详情</li>
+        </ol>
+    </div>
+    <div class="row guanyu">
+        <div class="row col-sm-12" style="text-align: center;">
+            <div class="titles title1">PRODUCT CENTER</div>
+            <div class="titles title2">产品详情</div>
+        </div>
+    </div>
+    <div class="row">
+        <img class="col-sm-4 img-responsive center-block" src="__PUBLIC__/common/images/cp-jiu1.png" alt="">
+        <div class="col-sm-8">
+            <div class="cp-zs">
+                <div class="col-sm-12">
+                    <div class="Ackerman">Ackerman Cabernet Franc Rose Brut</div>
+                    <div class="Ackerman Ackerman_font">埃克曼玫瑰起泡葡萄酒</div>
+                </div>
+                <div class="col-sm-12" style="padding: 0;">
+                    <div class="col-sm-6">
+                        <p><b>产地：</b><span>法国</span></p>
+                        <p><b>年份：</b><span>2014</span></p>
+                        <p><b>品种：</b><span>品丽珠</span></p>
+                        <p><b>酒精度：</b><span>12%</span></p>
+                        <p><b>参考价格：</b><span style="color: #f60;">119.00 RMB </span></p>
+                        <p><b>酒品提供：</b><span>杭州鼎世贸易有限公司 </span></p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p><b>外观：</b><span>3.9</span></p>
+                        <p><b>香气：</b><span>9.5</span></p>
+                        <p><b>滋味：</b><span>14.4</span></p>
+                        <p><b>总体质量：</b><span>5.8</span></p>
+                        <p><b>基本分：</b><span>60</span></p>
+                        <p><b>总评分：</b><span>84</span></p>
+                    </div>
+                </div>
+                <div class="col-sm-12" style="margin-top:30px;">
+                    <p class="cp-top-p">气泡充实、强烈，亮丽的三文鱼红色；有樱桃、青苹果的果香，较开放；入口有葡萄果味
+                        ，果酸均匀；微甜，平衡性尚可。是一款淡雅的桃红起泡酒，建议作开胃酒，可搭配咸味烤饼或简单的沙拉。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div style="margin-bottom:50px;"></div>
+</div>
+<footer>
+    {include file="public/footer"}
+</footer>
+
+<!--侧边栏-->
+{include file="public/sidebar"}
+
+
+</body>
+</html>

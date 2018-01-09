@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body>
+<!--侧边栏-->
+<div class="ce-btn">
+    <div class="ce-btns ce-weixin">微信
+        <div class="Alert">
+            微信shaoyishao
+        </div>
+    </div>
+    <div class="ce-btns">QQ
+        <div class="Alert">qq</div>
+    </div>
+    <div class="ce-btns">电话
+        <div class="Alert">dh</div>
+    </div>
+    <div class="ce-btns zhiding">置顶</div>
+</div>
+
+<script>
+    //    侧边栏
+    $(".ce-btns").mouseover(function(){
+        $(this).css({background:"#fff",color:"#a55c3f"}).siblings().css({background:"",color:""});
+        $(".ce-btns .Alert").eq($(this).index()).show();
+    });
+    $(".ce-btns").mouseleave(function(){
+        $(this).css({background:"",color:""});
+        $(".ce-btns .Alert").eq($(this).index()).hide();
+    });
+    //    置顶
+    $(".zhiding").click(function(){
+        var t=setInterval(function(){
+            if(document.body.scrollTop<=0){
+                clearInterval(t);
+                document.body.scrollTop=0;
+            }
+            document.body.scrollTop=document.body.scrollTop-200;
+        },40);
+    });
+</script>
+
+
+</body>
+</html>
