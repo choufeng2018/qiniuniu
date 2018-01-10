@@ -1,0 +1,18 @@
+.index-body{
+    background-color: #e7e8eb;
+}
+.logo{
+    width: 120px;
+    height:60px;
+    background-color: yellow;
+}
+#content-left{
+    background-color: #e7e8eb;
+}
+#content-right{
+    background-color: #3e8f3e;
+}
+li{
+    list-style: none;
+}
+

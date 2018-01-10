@@ -1,9 +1,10 @@
 <?php
 
 namespace app\admin\controller;
-
+header("Content-Type: text/html;charset=utf-8");
 use think\Controller;
 use think\Request;
+use think\Db;
 
 class Index extends Controller
 {
@@ -14,72 +15,38 @@ class Index extends Controller
      */
     public function index()
     {
-        //
+        return $this->fetch();
     }
 
-    /**
-     * 显示创建资源表单页.
-     *
-     * @return \think\Response
-     */
-    public function create()
-    {
-        //
+   public function publish(){
+       $info = Db::table('classify')->select();
+       $this->assign('select',$info);
+       return $this->fetch();
+   }
+    public function articlePublish(){
+        $str = '订单';
+        $a = strtolower(urlencode($str));
+        dump($a);
+    }
+    public function plist(){
+        $info = Db::table('product')->alias('p')->join('classify c', 'p.cid=c.id')->select();
+        $this->assign('list',$info);
+        return $this->fetch('list');
+    }
+    public function fileUpload(){
+        $file = request()->file('img');
+        // 移动到框架应用根目录/public/uploads/ 目录下
+        if($file){
+            $info = $file->move(ROOT_PATH . 'public' . DS . 'upload',$savename = false);
+            if($info){
+                $date['src'] = $info->getFilename();
+                echo json_encode($date);
+            }else{
+                // 上传失败获取错误信息
+                echo $file->getError();
+            }
+        }
     }
 
-    /**
-     * 保存新建的资源
-     *
-     * @param  \think\Request  $request
-     * @return \think\Response
-     */
-    public function save(Request $request)
-    {
-        //
-    }
 
-    /**
-     * 显示指定的资源
-     *
-     * @param  int  $id
-     * @return \think\Response
-     */
-    public function read($id)
-    {
-        //
-    }
-
-    /**
-     * 显示编辑资源表单页.
-     *
-     * @param  int  $id
-     * @return \think\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * 保存更新的资源
-     *
-     * @param  \think\Request  $request
-     * @param  int  $id
-     * @return \think\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * 删除指定资源
-     *
-     * @param  int  $id
-     * @return \think\Response
-     */
-    public function delete($id)
-    {
-        //
-    }
 }
