@@ -8,18 +8,21 @@
 <body>
 <!--侧边栏-->
 <div class="ce-btn">
-    <div class="ce-btns ce-weixin">微信
+    <div class="ce-btns ce-weixin">
+        <i class="weixin"></i>
         <div class="Alert">
             微信shaoyishao
         </div>
     </div>
-    <div class="ce-btns">QQ
+    <div class="ce-btns">
+        <i class="qq"></i>
         <div class="Alert">qq</div>
     </div>
-    <div class="ce-btns">电话
-        <div class="Alert">dh</div>
+    <div class="ce-btns">
+        <i class="tel"></i>
+        <div class="Alert"></div>
     </div>
-    <div class="ce-btns zhiding">置顶</div>
+    <div class="ce-btns"><i class="zhiding"></i></div>
 </div>
 
 <script>
@@ -42,6 +45,12 @@
             document.body.scrollTop=document.body.scrollTop-200;
         },40);
     });
+    var view_width=document.body.clientWidth;
+    if(view_width<768){
+        $(".ce-btns:nth-child(1)").hide();
+        $(".ce-btns:nth-child(2)").hide();
+
+    }
 </script>
 
 

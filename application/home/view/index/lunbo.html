@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    {include file='public/js'}
+    <link rel="stylesheet" href="__PUBLIC__/common/css/bootstrap.css">
+    <link rel="stylesheet" href="__PUBLIC__/common/css/indexStyle.css">
+    <script src="__PUBLIC__/common/js/jquery-3.2.1.min.js"></script>
+    <script src="__PUBLIC__/common/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/common/js/util.js"></script>
     <title>轮播图</title>
     <style>
         /*========轮播=======*/
@@ -117,7 +121,8 @@
                 <h3>鹰潭馆</h3>
                 <p>2017年9月27日，2017年中国国际信息通信展览会-MIoTA承办鹰潭馆</p>
             </div>
-        </div>            </div>
+        </div>
+        </div>
         <!-- Controls -->
         <a class="left carousel-control carousel_1_left" href="#carousel-example-generic" role="button" data-slide="prev">
             <!--<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>-->
@@ -131,27 +136,6 @@
     </div>
 </div>
 <script>
-    (function ($) {
-        $.fn.getValue = function () {
-            return UN.getValue($(this));
-        }
-        $.fn.setValue = function (para,callback) {
-            return UN.setValue(this,para,callback);
-        }
-        $.fn.touch_event = function(para){
-            return UN.touch_event(this, para);
-        }
-        $.extend({
-            alert_t: function () {
-                UN.extend({
-                    hhh: function () {
-                        alert("hahaha")
-                    }
-                })
-            }
-        })
-
-    })(jQuery)
     $(function(){
         $(".carousel-inner").find(".item").eq(0).addClass("active")
         var oli = $(".carousel-indicators").find("li")
@@ -172,6 +156,51 @@
         })
     })
 </script>
+<style>
+    .side{position:fixed;width:35px;height:275px;right:0;bottom:0;z-index:100;}
+    .side ul li{ width: auto; position: relative; height: 35px; margin-bottom: 0.05rem; border-radius:0 0.1rem 0.1rem 0;}
+    .side ul li span,.side ul li div>img{ position: absolute; right: 0; width: 35px; height: 35px; background-color: #da376a; border-radius: 0.1rem; overflow: hidden;zoom: 1;}
+    .side ul li span{ line-height: 35px; font-size: 14px; color: #fff; text-align: center;transition:all 0.3s;}
+    .side ul li:nth-child(1) span{ right: 35px; width: 0; border-radius:0.1rem 0 0 0.1rem;transition:all 0.3s;}
+    .side ul li div>img{ z-index: 2;transition:all 0.3s;}
+    .side ul li:last-child{ background-color: #da376a;transition:all 0.3s; border-radius:0.1rem;}
+    .side ul li:last-child:hover{ background-color: #000; border-radius:0.1rem;}
+</style>
+<div class="side">
+    <ul>
+        <li style="background-color: rgb(0, 0, 0);">
+            <a href="javascript:void(0);">
+                <div class="sidebox">
+                    <img src="http://www.qiniuniu.com/wp-content/themes/QNN/images/fl_wx.png" height="100%" style="background: rgb(0, 0, 0);">
+                    <span style="width: 800px; height: 206px; background: rgb(0, 0, 0); padding-right: 5px;">
+                        <img src="http://www.qiniuniu.com/wp-content/themes/QNN/images/fot_weixin.png" width="100%" height="100%">
+                    </span>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="tencent://message/?uin=2904037708&amp;Site=&amp;Menu=yes">
+                <div class="sidebox">
+                    <img src="http://www.qiniuniu.com/wp-content/themes/QNN/images/fl_qq.png" height="100%" style="background: rgb(218, 55, 106);">
+                    <span style="width: 35px; background: rgb(218, 55, 106); padding-right: 0px;">QQ客服</span>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);">
+                <div class="sidebox">
+                    <img src="http://www.qiniuniu.com/wp-content/themes/QNN/images/fl_tl.png" height="100%" style="background: rgb(218, 55, 106);">
+                    <span style="width: 35px; background: rgb(218, 55, 106); padding-right: 0px;">173-1779-0300</span>
+                </div>
+            </a>
+        </li>
+        <li style="border:none;">
+            <a href="javascript:goTop();" class="sidetop">
+                <img src="http://www.qiniuniu.com/wp-content/themes/QNN/images/fl_zd.png" height="100%">
+            </a>
+        </li>
+    </ul>
+</div>
 
 </body>
 </html>

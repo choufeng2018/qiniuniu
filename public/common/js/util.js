@@ -1,29 +1,123 @@
-// 用于管理平台
 /**
  * $方法扩展
  */
 (function ($) {
     $.fn.getValue = function () {
-        return WD.getValue($(this))
+        return UN.getValue($(this));
     }
-    $.fn.setValue = function (val,callback) {
-        return WD.setValue($(this),val, callback)
+    $.fn.setValue = function (para,callback) {
+        return UN.setValue(this,para,callback);
     }
-
+    $.fn.touch_event = function(para){
+        return UN.touch_event(this, para);
+    }
+    $.extend({
+        alert_t: function () {
+            UN.extend({
+                hhh: function () {
+                    alert("hahaha")
+                }
+            })
+        }
+    })
 
 })(jQuery)
 
+String.prototype.get_query = function () {
+    var that = this;
+    var arr = that.split("?")
+    var result = {};
+    if(arr[1] != undefined){
+        var arr_2 = arr[1].split('&');
+        var config = {};
 
-if(!window.WD){
-    window.WD = {
+        $.each(arr_2, function (i, v) {
+            var lin = v.split('=')
+            config[lin[0]] = lin[1]
+        })
+        result =  config;
+    }
+    return result;
+}
+
+if(!window.UN){
+    window.UN = {
         protocol: window.location.protocol,
         hostname: window.location.hostname,
-        https: 'http://',
+        https: 'https://',
         url: function () {
-          if(window.WD && window.WD.hostname){
-              return window.WD.protocol + "//" + window.WD.hostname + "/"
-          }
-          return window.location.protocol + "//" + window.location.hostname + "/"
+            if(window.UN && window.UN.hostname){
+                return window.UN.protocol + "//" + window.UN.hostname + "/"
+            }
+            return window.location.protocol + "//" + window.location.hostname + "/"
+        },
+
+        /**
+         * JS自定义表单提交
+         * @param formid
+         * @param action 表单提交路径
+         * @param callback
+         */
+        form_submit: function (formid, action, callback) {
+            var formDom = document.getElementById(formid);
+            var formData = new FormData(formDom);
+            //
+            var req = new XMLHttpRequest();
+            req.open("POST",  action);
+            req.onreadystatechange = function() {
+                if (this.status === 200 && this.readyState === 4) {
+                    var res = this.response;
+                    typeof callback == "function" && callback(res)
+                }else{
+                    console.log("错误");
+                }
+            };
+            req.upload.onprogress = function (event) {
+                // 进度条
+                if (event.lengthComputable) {
+                    var complete = (event.loaded / event.total * 100 | 0);
+                    var progress = document.getElementById('uploadprogress');
+                    if(progress)
+                        progress.value = progress.innerHTML = complete;
+                    // if(complete >= 100){
+                    //     document.getElementById('uploadprogress').style.display = 'none'
+                    // }
+                }
+            };
+            // req.addEventListener('loadend' , function () {
+            //      document.getElementById('uploadprogress').style.display = 'none'
+            // })
+
+            //将form数据发送出去
+            req.send(formData);
+            //避免内存泄漏
+            req = null;
+
+            return req;
+        },
+
+        /**
+         * 实现图片预览
+         * @param that 需要上传图片的input
+         * @param callback 回调函数
+         * @param config 可能需要的额外数据
+         */
+        upload_preview: function (that,callback,config) {
+            var file = that.files[0];
+            var fileReader = new FileReader();
+            // 监听
+            fileReader.onabort = function(){
+            }
+            fileReader.onerror = function(){
+            }
+            fileReader.onload = function(e){
+                typeof callback == "function" && callback(e)
+            }
+            try{
+                fileReader.readAsDataURL(file);
+            }catch (Exception){
+                console.log(Exception.name +":"+ Exception.message);
+            }
         },
 
         /**
@@ -121,7 +215,6 @@ if(!window.WD){
                     typeof callback == "function" && callback(res);
                 },
                 error: function(res){
-                    //jeBox.msg('网络错误', {time: 1});
                     console.log("接口请求错误");
                     typeof error == "function" && error();
                 }
@@ -180,6 +273,9 @@ if(!window.WD){
         get_query: function (para) {
             var arr = location.href.split('?');
             var result = {};
+            //console.log(arr[2]);
+            //var hehe = arr[2].split('=');
+            //console.log(hehe);
             if(arr[1] != undefined){
                 var arr_2 = arr[1].split('&');
                 var config = {};
@@ -196,60 +292,26 @@ if(!window.WD){
                     result = cof;
                 }
             }
+            //result['secid'] =  hehe[1];
+            //console.log(result);
             return result;
         },
 
-        // /**
-        //  * 警告弹窗，msg为弹出信息，size默认为small
-        //  */
-        // alert: function (config) {
-        //     config = $.extend({
-        //         title: "提示",
-        //         msg: "提示",
-        //         size: "small"
-        //     },config)
-        //     bootbox.alert({
-        //         title: config.title,
-        //         message: config.msg,
-        //         size: config.size
-        //     });
-        // },
-        //
-        //
-        // /**
-        //  * 弹出层，确定、取消选项，对应ok()、cancel()
-        //  * msg支持HTML输入，提示信息
-        //  * @param config
-        //  */
-        // dialog: function (config) {
-        //     /*cancel: function () {},
-        //     ok: function () {}*/
-        //     config = $.extend({
-        //         msg: "<div>空白信息</div>",
-        //     }, config)
-        //
-        //     bootbox.dialog({
-        //         message: config.msg,
-        //         buttons:
-        //             {
-        //                 cancel: {
-        //                     label: "取消",
-        //                     className: 'btn-danger',
-        //                     callback: function(){
-        //                         typeof config.cancel == 'function' && config.cancel()
-        //                     }
-        //                 },
-        //                 ok: {
-        //                     label: "确定",
-        //                     className: 'btn-info',
-        //                     callback: function(){
-        //                         typeof config.ok == 'function' && config.ok()
-        //                     }
-        //                 }
-        //
-        //             }
-        //     });
-        // },
+        // url解析
+        url_release : function (url) {
+            var arr = url.split('?');
+            var result = {};
+            if(arr[1] != undefined){
+                var arr_2 = arr[1].split('&');
+                $.each(arr_2, function (i, v) {
+                    var lin = v.split('=');
+                    result[lin[0]] = lin[1];
+                })
+            }
+            result.url = arr[0];
+            return result;
+        },
+
         dialogRemove: function () {
             $("body").removeClass("modal-open")
             $(".modal-backdrop").remove()
@@ -266,7 +328,7 @@ if(!window.WD){
          * 警告弹窗，msg为弹出信息，size默认为small
          */
         alert: function (config) {
-            WD.alertRemove();
+            UN.alertRemove();
             config.title = config.title || "提示"
             var btn = '<button type="button" class="btn btn-primary" id="un-alert" style="display: none;" data-toggle="modal" data-target=".bs-example-modal-sm"></button>'
             var alert = '<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">\n' +
@@ -298,7 +360,7 @@ if(!window.WD){
          * @param success 如果option未自定义button属性，success
          */
         dialog : function (option) {
-            WD.dialogRemove()
+            UN.dialogRemove()
             var config = {};
 
             option = $.extend({
@@ -353,6 +415,7 @@ if(!window.WD){
             $("#myModal").modal('hide')
         },
 
+
         /**
          * 合并多个对象，与 $.extend({})效果一致
          * @returns {{}}
@@ -372,6 +435,64 @@ if(!window.WD){
                 inner_merge(ret, arguments[i])
             }
             return ret
+        },
+
+        get_direction: function (dom) {
+
+
+        },
+        /**
+         * 左滑动时间
+         */
+        touch_event: function (dom,para) {
+            var startX, endX, X
+            $(dom).on("touchstart", function (e) {
+                e.preventDefault();
+                startX = e.originalEvent.changedTouches[0].pageX;
+            })
+            $(dom).on("touchend", function (e) {
+                e.preventDefault();
+                endX = e.originalEvent.changedTouches[0].pageX;
+
+                X = endX - startX;
+                console.log(X)
+                if(X < 0){
+                    typeof para.left == 'function' && para.left()
+                }
+                if(X > 0){
+                    typeof para.right == 'function' && para.right()
+                }
+            })
+
+
+        },
+
+        // 参考
+        touch: function(dom){
+            var startX, startY, moveEndX, moveEndY,
+                X, Y
+
+
+            $(".group-box").on("touchstart", function(e) {
+                e.preventDefault();
+                startX = e.originalEvent.changedTouches[0].pageX;
+                // startY = e.originalEvent.changedTouches[0].pageY;
+            });
+            $(".group-box").on("touchmove", function(e) {
+                e.preventDefault();
+                moveEndX = e.originalEvent.changedTouches[0].pageX;
+                // moveEndY = e.originalEvent.changedTouches[0].pageY,
+                X = moveEndX - startX;
+                // Y = moveEndY - startY;
+
+                if( X > 0 ) {
+                    console.log("right");
+                } else if  ( X < 0 ) {
+                    console.log("left");
+                } else{
+                    console.log("just touch");
+                }
+            });
         },
 
     }

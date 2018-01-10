@@ -23,9 +23,7 @@ class Index extends Controller{
         return $id;
     }
 
-    public function hongjiu(){
-        return $this->fetch();
-    }
+
     public function Group(){
         return $this->fetch();
     }
