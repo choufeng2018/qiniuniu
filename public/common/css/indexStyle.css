@@ -412,6 +412,15 @@ img{vertical-align: middle;}
     right:-10px;
     top:10px;
 }
+@media (max-width: 768px) {
+    .ce-btns:nth-child(1){
+        display: none;
+    }
+    .ce-btns:nth-child(2){
+        display: none;
+    }
+}
+
 
 
 

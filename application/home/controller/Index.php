@@ -11,8 +11,7 @@ use think\Db;
 
 class Index extends Controller{
     public function index(){
-        $list = Db::table('ceshi')->paginate(5);
-        $this->assign('list',$list);
+
         return $this->fetch();
     }
 

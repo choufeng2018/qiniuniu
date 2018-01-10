@@ -1,18 +1,32 @@
-.index-body{
+body{
     background-color: #e7e8eb;
 }
+ul{list-style: none;}
+.header{height: 150px;background: #dedede;}
 .logo{
+    float: left;
     width: 120px;
-    height:60px;
-    background-color: yellow;
 }
+.logo img{width: 100%;}
+.name>li{
+    float: right;
+    line-height: 150px;
+    font-size:18px;
+}
+.name>li>a{
+    display: inline-block;
+    padding: 0 20px;
+    color: #a55c3f;
+}
+
+
+
+
 #content-left{
     background-color: #e7e8eb;
 }
 #content-right{
     background-color: #3e8f3e;
 }
-li{
-    list-style: none;
-}
+
 
