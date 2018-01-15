@@ -66,7 +66,8 @@ class Index extends Controller
 
     public function modify(){
         $id = $_POST['id'];
-
+        $info = Db::table('product')->where("id=$id")->find();
+        echo json_encode($info);
     }
 
 
