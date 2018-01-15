@@ -37,7 +37,7 @@ class Index extends Controller
         $file = request()->file('img');
         // 移动到框架应用根目录/public/uploads/ 目录下
         if($file){
-            $info = $file->move(ROOT_PATH . 'public' . DS . 'upload',$savename = false);
+            $info = $file->move(ROOT_PATH . 'public' . DS . 'upload');
             if($info){
                 $date['src'] = $info->getFilename();
                 echo json_encode($date);
