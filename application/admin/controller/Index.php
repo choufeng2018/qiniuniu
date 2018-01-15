@@ -35,9 +35,9 @@ class Index extends Controller
     }
     public function fileUpload(){
         $file = request()->file('img');
-        // 移动到框架应用根目录/public/uploads/ 目录下
+        // 移动到框架应用根目录/public/upload/ 目录下
         if($file){
-            $info = $file->move(ROOT_PATH . 'public' . DS . 'upload');
+            $info = $file->move(ROOT_PATH . 'public' . DS . 'upload',$savname=false);
             if($info){
                 $date['src'] = $info->getFilename();
                 echo json_encode($date);
@@ -62,6 +62,11 @@ class Index extends Controller
             $date['msg'] = '保存失败！';
         }
         echo json_encode($date);
+    }
+
+    public function modify(){
+        $id = $_POST['id'];
+
     }
 
 
