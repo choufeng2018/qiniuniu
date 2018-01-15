@@ -51,8 +51,9 @@ class Index extends Controller
         $map['banner'] = $_POST['banner'];
         $map['title'] = $_POST['title'];
         $map['content'] = $_POST['content'];
+        $map['cid'] = $_POST['cid'];
         $map['time'] = time();
-        $info = Db::table('product')->save($map);
+        $info = Db::table('product')->insert($map);
         if($info){
             $date['success'] = 'success';
             $date['msg'] = '保存成功！';
