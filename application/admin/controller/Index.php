@@ -19,19 +19,20 @@ class Index extends Controller
     }
 
    public function publish(){
-       $info = Db::table('classify')->select();
-       $this->assign('select',$info);
+
        return $this->fetch();
    }
-    public function articlePublish(){
-        $str = '订单';
-        $a = strtolower(urlencode($str));
-        dump($a);
-    }
+
     public function plist(){
-        $info = Db::table('product')->alias('p')->join('classify c', 'p.cid=c.id')->select();
-        $this->assign('list',$info);
+        $list = Db::table('product')->alias('p')->join('classify c', 'p.cid=c.id')->paginate(10);
+        $this->assign('list',$list);
         return $this->fetch('list');
+       /* // 查询状态为1的用户数据 并且每页显示10条数据
+        $list = Db::name('user')->where('status',1)->paginate(10);
+// 把分页数据赋值给模板变量list
+        $this->assign('list', $list);
+// 渲染模板输出
+        return $this->fetch();*/
     }
     public function fileUpload(){
         $file = request()->file('img');
@@ -65,9 +66,10 @@ class Index extends Controller
     }
 
     public function modify(){
-        $id = $_POST['id'];
-        $info = Db::table('product')->where("id=$id")->find();
-        echo json_encode($info);
+        $id = $_GET['id'];
+        $modify= Db::table('product')->where("id=$id")->find();
+        //dump($modify);
+        echo json_encode($modify);
     }
 
 
