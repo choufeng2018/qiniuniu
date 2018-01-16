@@ -52,7 +52,6 @@
                         <td>分类</td>
                         <td>时间</td>
                         <td>编辑</td>
-                        
                     </tr>
                     </thead>
                     {volist name="list" id="vo"}
@@ -63,8 +62,10 @@
                         <td>{$vo.description}</td>
                         <td>{$vo.time|date="Y-m-d",###}</td>
                         <td>
-                            <a href="{:url('admin/index/modify')}?id={$vo.id}">修改</a>
-                            <a href="">删除</a>
+                           <!-- <a href="{:url('admin/index/publish')}?id={$vo.id}&banner={$vo.banner}&title={$vo.title}&content={$vo.content}&cid={$vo.cid}">修改</a>-->
+                            <!--<a href="" class="modify" data-id="{$vo.id}">修改</a>-->
+                            <a href="{:url('admin/index/publish')}?id={$vo.id}">修改</a>
+                            <a href="" class="del" data-id="{$vo.id}">删除</a>
                         </td>
                     </tr>
                     {/volist}
@@ -85,6 +86,26 @@
         </p>
     </div>
 </div>
+<script>
+    //删除
+    $(".del").on('click',function(){
+       var id = $(".del").data('id');
+        $.ajax({
+            url:"delete",
+            data:{"id":id}, //以键/值对的形式
+            type:"GET",
+            async : false,
+            dataType : "json",
+            success : function(res) {
+                if(res.success){
+                    alert('删除成功')
+                }else{
+                    alert('删除失败');
+                }
+            }
+        })
+    })
 
+</script>
 </body>
 </html>

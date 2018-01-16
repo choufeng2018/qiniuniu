@@ -24,7 +24,7 @@ class Index extends Controller
    }
 
     public function plist(){
-        $list = Db::table('product')->alias('p')->join('classify c', 'p.cid=c.id')->paginate(10);
+        $list = Db::table('product')->alias("p")->join("classify c","p.cid=c.id",'left')->field('p.*,c.description')->paginate(10);
         $this->assign('list',$list);
         return $this->fetch('list');
        /* // 查询状态为1的用户数据 并且每页显示10条数据
@@ -67,10 +67,37 @@ class Index extends Controller
 
     public function modify(){
         $id = $_GET['id'];
-        $modify= Db::table('product')->where("id=$id")->find();
+        $modify= Db::table('product')->alias("p")->join("classify c","p.cid=c.id",'left')->where("p.id=$id")->field('p.*,c.description')->find();
         //dump($modify);
         echo json_encode($modify);
     }
-
+    public function update(){
+        $id = $_POST['id'];
+        $map['cid'] = $_POST['cid'];
+        $map['title'] = $_POST['title'];
+        $map['content'] = $_POST['content'];
+        $map['banner'] = $_POST['banner'];
+        $info = Db::table('product')->where("id=$id")->update($map);
+        if($info){
+            $date['success'] = 'success';
+            $date['msg'] = '更新成功';
+        }else{
+            $date['fail'] = 'fail';
+            $date['msg'] = '更新失败';
+        }
+        echo json_encode($date);
+    }
+    public function delete(){
+        $id = $_GET['id'];
+        $info = Db::table('product')->where("id=$id")->delete();
+        if($info){
+            $date['success'] = 'success';
+            $date['msg'] = '删除成功';
+        }else{
+            $date['fail'] = 'fail';
+            $date['msg'] = '删除失败';
+        }
+        echo json_encode($date);
+    }
 
 }
