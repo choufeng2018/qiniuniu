@@ -29,4 +29,17 @@ ul{list-style: none;}
     background-color: #3e8f3e;
 }
 
+.table tr a{
+    display: inline-block;
+    margin:5px 0;
+    width:40px;
+    height: 25px;
+    line-height:25px;
+    text-align: center;
+    /*cursor: pointer;*/
+
+}
+.s1{background: #a55c3f;}
+.s2{background:firebrick;}
+
 
