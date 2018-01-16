@@ -8,16 +8,16 @@
 <body>
 <!--侧边栏-->
 <div class="ce-btn">
-    <div class="ce-btns ce-weixin">
-        <i class="weixin"></i>
-        <div class="Alert">
-            微信shaoyishao
-        </div>
-    </div>
-    <div class="ce-btns">
-        <i class="qq"></i>
-        <div class="Alert">qq</div>
-    </div>
+    <!--<div class="ce-btns ce-weixin">-->
+        <!--<i class="weixin"></i>-->
+        <!--<div class="Alert">-->
+            <!--微信shaoyishao-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="ce-btns">-->
+        <!--<i class="qq"></i>-->
+        <!--<div class="Alert">qq</div>-->
+    <!--</div>-->
     <div class="ce-btns">
         <i class="tel"></i>
         <div class="Alert"></div>
@@ -38,11 +38,11 @@
     //    置顶
     $(".zhiding").click(function(){
         var t=setInterval(function(){
-            if(document.body.scrollTop<=0){
+            if(document.documentElement.scrollTop<=0){
                 clearInterval(t);
-                document.body.scrollTop=0;
+                document.documentElement.scrollTop=0;
             }
-            document.body.scrollTop=document.body.scrollTop-200;
+            document.documentElement.scrollTop=document.documentElement.scrollTop-200;
         },40);
     });
 

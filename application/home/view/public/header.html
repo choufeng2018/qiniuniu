@@ -20,8 +20,8 @@
                 </a>
             </div>
             <div class="collapse navbar-collapse" id="example">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="active">
+                <ul class="nav navbar-nav navbar-right bgul">
+                    <li>
                         <a href="{:url('home/index/index')}">首页</a>
                     </li>
                     <li><a href="{:url('home/index/group')}">集团简介</a></li>
@@ -35,6 +35,13 @@
     </div>
 </nav>
 
-
+<script src="__PUBLIC__/common/js/jquery-3.2.1.min.js"></script>
+<script>
+    $('.bgul li').hover(function () {
+        $(this).addClass('active-imgbg').siblings().removeClass('active-imgbg')
+    },function () {
+        $(this).removeClass('active-imgbg')
+    })
+</script>
 </body>
 </html>

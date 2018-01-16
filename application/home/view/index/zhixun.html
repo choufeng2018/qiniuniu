@@ -6,21 +6,21 @@
     {include file='public/js'}
     <title>红酒资讯</title>
     <style>
-        .nav{
+        #box{
             height: 100px;;
             text-align: center;
         }
-        .nav-pills>li{
+        #box li {
             display: inline-block;
-            height:30px;
-            line-height:30px;
+            height: 30px;
+            line-height: 30px;
             float: none;
         }
-        .nav>li>a{
+        #box li>a{
             padding:0 15px;
             border-radius: 0px;
         }
-        .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{
+        #box>.content.active>a, #box li.active>a:focus, #box li.active>a:hover{
             background-color: #a55c3f;
             color: #fff;
         }
@@ -58,10 +58,10 @@
         </div>
         <div class="col-sm-12">
             <div class="col-sm-4"></div><!--空标签-->
-            <ul class="nav nav-pills col-sm-4">
-                <li class="active"><a data-toggle="tab" href="#home">行业动态</a></li>
-                <li><a data-toggle="tab" href="#menu1">公司新闻</a></li>
-                <li><a data-toggle="tab" href="#menu2">红酒百科</a></li>
+            <ul class="nav n col-sm-4" id="box">
+                <li class="active content"><a data-toggle="tab" href="#home">行业动态</a></li>
+                <li class="content"><a data-toggle="tab" href="#menu1">公司新闻</a></li>
+                <li class="content"><a data-toggle="tab" href="#menu2">红酒百科</a></li>
             </ul>
             <div class="col-sm-4"></div><!--空标签-->
             <div class="tab-content col-sm-12">
@@ -71,40 +71,46 @@
                             <a href="#"><img class="img-responsive center-block" src="__PUBLIC__/common/images/zx-1.png"></a>
 
                             <div class="zx-title">
-                                <h5>具有优雅的花香及酒香</h5>
+                                <h5>赤霞珠（Cabernet Sauvignon）</h5>
                                 <p><u>2018.01.01</u></p>
                                 <p class="overflow overflow-3">
-                                    <a href="#">这款来自法国勃艮第的起泡酒拥有澄清的玫瑰红色，泡沫细腻且持续性较好；隐隐的花香较为清淡；入口略甜，酒体较沉，平衡性良好，回味偏短；建议尽快饮用。
-                                        　　酒色呈漂亮的玫瑰红色，晶亮透明，具有优雅的花香及酒香，酒体有骨架感，平衡性良好，入口圆润丰满，后味较长，是一款较具典型性的桃红葡萄酒。
-                                        　　酒色呈漂亮的玫瑰红色，晶亮透明，具有优雅的花香及酒香，酒体有骨架感，平衡性良好，入口圆润丰满，后味较长，是一款较具典型性的桃红葡萄酒。
+                                    <a href="{:url('home/index/ZXxianqin')}">作为世界上最著名的红葡萄品种，赤霞珠（Cabernet Sauvignon）的历史并不是
+                                        特别悠久。它与梅洛（Merlot）一起堪称世界上种植面积最广泛的两种深色葡萄品种，二者的种植面积不相上下。
+                                        赤霞珠的起源一直以来是一个谜。1996年，加州大学戴维斯分校（UC Davis）葡萄种植与酿造学部门（UC Davis Department of Viticulture and Enology）
+                                        的卡罗尔·梅雷迪斯博士（Dr. Carole Meredith）带领的研究团队通过DNA分型发现了赤霞珠的真正起源。研究结果显示，赤霞珠正是由品丽珠（Cabernet Franc）
+                                        和波尔多（Bordeaux）白葡萄品种长相思（Sauvignon Blanc）在17世纪时通过自然杂交形成。这就解释了为什么赤霞珠的香气与其父母本如此相似，也解释了为什么品丽
+                                        珠在文献记录中出现的时间比赤霞珠更早。
                                     </a>
                                 </p>
                             </div>
 
                         </div>
+
+
                         <div class="col-sm-4">
-                            <a href="#"><img class="img-responsive center-block" src="__PUBLIC__/common/images/zx-2.png"></a>
+                            <a href="{:url('home/index/ZXxianqin')}"><img class="img-responsive center-block" src="__PUBLIC__/common/images/zx-2.png"></a>
 
                             <div class="zx-title">
-                                <h5>具有优雅的花香及酒香</h5>
+                                <h5>黑皮诺（Pinot Noir）</h5>
                                 <p><u>2018.01.01</u></p>
                                 <p class="overflow overflow-3">
-                                    <a href="#">这款来自法国勃艮第的起泡酒拥有澄清的玫瑰红色，泡沫细腻且持续性较好；隐隐的花香较为清淡；入口略甜，酒体较沉，平衡性良好，回味偏短；建议尽快饮用。
-                                        　　酒色呈漂亮的玫瑰红色，晶亮透明，具有优雅的花香及酒香，酒体有骨架感，平衡性良好，入口圆润丰满，后味较长，是一款较具典型性的桃红葡萄酒。
-                                        　　酒色呈漂亮的玫瑰红色，晶亮透明，具有优雅的花香及酒香，酒体有骨架感，平衡性良好，入口圆润丰满，后味较长，是一款较具典型性的桃红葡萄酒。
+                                    <a href="{:url('home/index/ZXxianqin')}">黑皮诺（Pinot Noir）很可能原产自法国东北部，并在欧洲广泛种植。在罗马统治时代之前，
+                                        高卢人就在勃艮第（Burgundy）地区种植黑皮诺，黑皮诺在该地区表现最好，也最为世人称道。截至1995年科学家共培育出近800个黑皮诺克隆系。
                                     </a>
                                 </p>
                             </div>
                         </div>
+
                         <div class="col-sm-4">
-                            <a href="#"><img class="img-responsive center-block" src="__PUBLIC__/common/images/zx-3.png"></a>
+                            <a href="{:url('home/index/ZXxianqin')}"><img class="img-responsive center-block" src="__PUBLIC__/common/images/zx-3.png"></a>
                             <div class="zx-title">
-                                <h5>具有优雅的花香及酒香</h5>
+                                <h5>雷司令（Riesling）</h5>
                                 <p><u>2018.01.01</u></p>
                                 <p class="overflow overflow-3">
-                                    <a href="#">这款来自法国勃艮第的起泡酒拥有澄清的玫瑰红色，泡沫细腻且持续性较好；隐隐的花香较为清淡；入口略甜，酒体较沉，平衡性良好，回味偏短；建议尽快饮用。
-                                        　　酒色呈漂亮的玫瑰红色，晶亮透明，具有优雅的花香及酒香，酒体有骨架感，平衡性良好，入口圆润丰满，后味较长，是一款较具典型性的桃红葡萄酒。
-                                        　　酒色呈漂亮的玫瑰红色，晶亮透明，具有优雅的花香及酒香，酒体有骨架感，平衡性良好，入口圆润丰满，后味较长，是一款较具典型性的桃红葡萄酒。
+                                    <a href="{:url('home/index/ZXxianqin')}">雷司令（Riesling）是德国最古老的葡萄品种之一，该品种于1435年第一次在文献中被提及，
+                                        很可能起源于德国的莱茵高（Rheingau）地区。DNA检测结果表明，雷司令与西欧最古老、多产的葡萄品种之一——白高维斯（Gouais Blanc）之间存在亲子关系。因为
+                                        白高维斯同时还与霞多丽（Chardonnay）、佳美（Gamay）和艾伯灵（Elbling）等至少8个葡萄品种存在亲子关系，因而雷司令也与这些品种或多或少存在着“血缘关系”。
+
                                     </a>
                                 </p>
                             </div>
@@ -112,29 +118,30 @@
                     </div>
                     <div class="row zx-margin">
                         <div class="col-sm-4">
-                            <a href="#"><img class="img-responsive center-block" src="__PUBLIC__/common/images/zx-4.png"></a>
+                            <a href="{:url('home/index/ZXxianqin')}"><img class="img-responsive center-block" src="__PUBLIC__/common/images/zx-4.png"></a>
 
                             <div class="zx-title">
-                                <h5>具有优雅的花香及酒香</h5>
+                                <h5>梅洛（Merlot）</h5>
                                 <p><u>2018.01.01</u></p>
                                 <p class="overflow overflow-3">
-                                    <a href="#">这款来自法国勃艮第的起泡酒拥有澄清的玫瑰红色，泡沫细腻且持续性较好；隐隐的花香较为清淡；入口略甜，酒体较沉，平衡性良好，回味偏短；建议尽快饮用。
-                                        　　酒色呈漂亮的玫瑰红色，晶亮透明，具有优雅的花香及酒香，酒体有骨架感，平衡性良好，入口圆润丰满，后味较长，是一款较具典型性的桃红葡萄酒。
-                                        　　酒色呈漂亮的玫瑰红色，晶亮透明，具有优雅的花香及酒香，酒体有骨架感，平衡性良好，入口圆润丰满，后味较长，是一款较具典型性的桃红葡萄酒。
+                                    <a href="{:url('home/index/ZXxianqin')}">梅洛（Merlot）的原产地是法国，其最早的文献记载可追溯到1783年左右，流传于吉伦特省（Gironde）的利布尔
+                                        讷市（Libourne），“Merlau可以酿造颜色深浓的绝妙的美酒，适合在富饶的土壤中生长”。梅洛也曾被人们唤作“河里的葡萄苗”，因为人们普遍认为，梅洛是诞生在加
+                                        龙河（Garonne）中的一个岛屿上。直到1824年，梅洛才正式更名为现在使用的名字——Merlot。
                                     </a>
                                 </p>
                             </div>
                         </div>
                         <div class="col-sm-4">
-                            <a href="#"><img class="img-responsive center-block" src="__PUBLIC__/common/images/zx-5.png"></a>
+                            <a href="{:url('home/index/ZXxianqin')}"><img class="img-responsive center-block" src="__PUBLIC__/common/images/zx-5.png"></a>
 
                             <div class="zx-title">
-                                <h5>具有优雅的花香及酒香</h5>
+                                <h5>霞多丽（Chardonnay）</h5>
                                 <p><u>2018.01.01</u></p>
                                 <p class="overflow overflow-3">
-                                    <a href="#">这款来自法国勃艮第的起泡酒拥有澄清的玫瑰红色，泡沫细腻且持续性较好；隐隐的花香较为清淡；入口略甜，酒体较沉，平衡性良好，回味偏短；建议尽快饮用。
-                                        　　酒色呈漂亮的玫瑰红色，晶亮透明，具有优雅的花香及酒香，酒体有骨架感，平衡性良好，入口圆润丰满，后味较长，是一款较具典型性的桃红葡萄酒。
-                                        　　酒色呈漂亮的玫瑰红色，晶亮透明，具有优雅的花香及酒香，酒体有骨架感，平衡性良好，入口圆润丰满，后味较长，是一款较具典型性的桃红葡萄酒。
+                                    <a href="{:url('home/index/ZXxianqin')}">霞多丽（Chardonnay）原产于法国索恩鲁瓦尔省（Saone-et-Loire），里昂（Lyon）和第戎（Dijon）
+                                        之间，主要在金丘（Cote d' Or）、索恩鲁瓦尔（Saone-et-Loire）和马恩（Marne）产区。该品种在17世纪就有种植记录，得名于勃艮第南部马贡（Maconnais
+                                        ）产区的霞多丽村。霞多丽在历史上有多个拼法，如“Chardenet”、“Chardonnet”和“Chardenay” 等等，直到20世纪才被称作“Chardonnay”。
+
                                     </a>
                                 </p>
                             </div>
@@ -142,12 +149,14 @@
                         <div class="col-sm-4">
                             <a href="#"><img class="img-responsive center-block" src="__PUBLIC__/common/images/zx-6.png"></a>
                             <div class="zx-title">
-                                <h5>具有优雅的花香及酒香</h5>
+                                <h5>长相思（Sauvignon Blanc）</h5>
                                 <p><u>2018.01.01</u></p>
                                 <p class="overflow overflow-3">
-                                    <a href="#">这款来自法国勃艮第的起泡酒拥有澄清的玫瑰红色，泡沫细腻且持续性较好；隐隐的花香较为清淡；入口略甜，酒体较沉，平衡性良好，回味偏短；建议尽快饮用。
-                                        　　酒色呈漂亮的玫瑰红色，晶亮透明，具有优雅的花香及酒香，酒体有骨架感，平衡性良好，入口圆润丰满，后味较长，是一款较具典型性的桃红葡萄酒。
-                                        　　酒色呈漂亮的玫瑰红色，晶亮透明，具有优雅的花香及酒香，酒体有骨架感，平衡性良好，入口圆润丰满，后味较长，是一款较具典型性的桃红葡萄酒。
+                                    <a href="{:url('home/index/ZXxianqin')}">作为一个芳香型的白葡萄品种，长相思（Sauvignon Blanc）的香气与红葡萄品种
+                                        赤霞珠（Cabernet Sauvignon）有几分相似，都有类似于草本植物的香气。1997年，DNA检测证实品丽珠（Cabernet Franc）和长相思是赤霞珠的双亲，
+                                        而在18世纪左右，长相思和品丽珠在波尔多（Bordeaux）葡萄园里自然杂交产生了赤霞珠，因此，长相思的起源地常被认为是
+                                        波尔多。然而事实上，长相思最早于1534年在卢瓦尔河谷（Loire Valley）被提及。如今，奥地利进行的DNA检测进一步表明，长相思的起源可能
+                                        与白诗南（Chenin Blanc）及塔明娜（Traminer）有关。
                                     </a>
                                 </p>
                             </div>
@@ -176,11 +185,11 @@
                     </div>
                 </div>
                 <div id="menu1" class="tab-pane fade">
-                    <h3>菜单 1</h3>
+                    <h3>暂无内容</h3>
 
                 </div>
                 <div id="menu2" class="tab-pane fade">
-                    <h3>菜单 2</h3>
+                    <h3>暂无内容</h3>
 
                 </div>
             </div>
