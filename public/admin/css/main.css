@@ -1,5 +1,5 @@
 body{
-    background-color: #e7e8eb;
+    background-color: #fff;
 }
 ul{list-style: none;}
 .header{height: 150px;background: #dedede;}
@@ -25,8 +25,8 @@ ul{list-style: none;}
 #content-left{
     background-color: #e7e8eb;
 }
-#content-right{
-    background-color: #3e8f3e;
+#content-right {
+    background-color: #dddddd;
 }
 
 .table tr a{
