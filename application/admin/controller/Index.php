@@ -51,6 +51,8 @@ class Index extends Controller
     public function receiveProduct(){
         $map['banner'] = $_POST['banner'];
         $map['title'] = $_POST['title'];
+        $map['author'] = $_POST['author'];
+        $map['source'] = $_POST['source'];
         $map['content'] = $_POST['content'];
         $map['cid'] = $_POST['cid'];
         $map['time'] = time();
@@ -77,6 +79,8 @@ class Index extends Controller
         $map['title'] = $_POST['title'];
         $map['content'] = $_POST['content'];
         $map['banner'] = $_POST['banner'];
+        $map['author'] = $_POST['author'];
+        $map['source'] = $_POST['source'];
         $info = Db::table('product')->where("id=$id")->update($map);
         if($info){
             $date['success'] = 'success';

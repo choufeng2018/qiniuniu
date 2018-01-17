@@ -48,6 +48,8 @@
                     <tr>
                         <td>封面</td>
                         <td>标题</td>
+                        <td>作者</td>
+                        <td>来源</td>
                         <td>内容</td>
                         <td>分类</td>
                         <td>时间</td>
@@ -58,6 +60,8 @@
                     <tr>
                         <td>{$vo.banner}</td>
                         <td>{$vo.title}</td>
+                        <td>{$vo.author}</td>
+                        <td>{$vo.source}</td>
                         <td>{$vo.content}</td>
                         <td>{$vo.description}</td>
                         <td>{$vo.time|date="Y-m-d",###}</td>
@@ -89,12 +93,12 @@
 <script>
     //删除
     $(".del").on('click',function(){
-       var id = $(".del").data('id');
+       var id = $(this).data('id');
         $.ajax({
             url:"delete",
             data:{"id":id}, //以键/值对的形式
             type:"GET",
-            async : false,
+            async : true,
             dataType : "json",
             success : function(res) {
                 if(res.success){
