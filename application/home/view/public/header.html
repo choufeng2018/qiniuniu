@@ -25,7 +25,7 @@
             </div>
             <div class="collapse navbar-collapse" id="example">
                 <ul class="nav navbar-nav navbar-right bgul">
-                    <li>
+                    <li >
                         <a href="{:url('home/index/index')}">首页</a>
                     </li>
                     <li><a href="{:url('home/index/group')}">集团简介</a></li>
@@ -45,8 +45,10 @@
         $(this).addClass('active-imgbg').siblings().removeClass('active-imgbg')
     },function () {
         $(this).removeClass('active-imgbg')
-    });
+    })
+    $('.bgul li').click(function () {
 
+    })
 //    var init = function (){
 //        var width = document.body.clientWidth;
 //        if(width<768){
