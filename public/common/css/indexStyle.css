@@ -1,10 +1,33 @@
+::-webkit-scrollbar {
+    width:8px;
+    height: 8px;
+}
+::-webkit-scrollbar-button {
+    background-color: #FF7677;
+    display: none
+}
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.7)
+}
+::-webkit-scrollbar-thumb {
+    background:rgba(84,84,84,0.3); //滚动条颜色
+border-radius:2px;
+}
+::-webkit-scrollbar-corner {
+    background: #82AFFF;
+    display: none
+}
+
+
+
+
 
 body{font-family:"Microsoft YaHei","Arial","Helvetica","Verdana";font-size:14px;}
 ul, ol {list-style-type: none;}
 li{list-style: none;}
 u,i{font-style: normal;text-decoration: none;}
 a {color:#333; text-decoration: none; }
-
+*{padding:0;margin:0;}
 .titles{
     line-height:140%;
     color:#a55c3f;
@@ -50,7 +73,7 @@ a h4{
     padding:0 15px;
 }
 .navbar-header .navbar-brand>img{
-    width:110px;
+    width:127px;
 }
 .navbar-nav > li{
     width:146px;
@@ -99,7 +122,7 @@ a h4{
     background: #999;
 }
 .carousel-indicators .active{
-    background: #0581e2;
+    background:#a55c3f;
 }
 
 .carousel-box .glyphicon{
@@ -359,11 +382,17 @@ a h4{
     right:-10px;
     top:10px;
 }
+.change img{
+    display: none;
+}
 
 @media screen and (max-width: 992px){
     .carousel-indicators{
         bottom: 0;
     }
+    /*.change img{*/
+        /*display:none;*/
+    /*}*/
 }
 
 @media (max-width: 768px) {
@@ -383,7 +412,7 @@ a h4{
     .guanyu{padding:20px 0;}
 
     .navbar-header .navbar-brand>img{
-        width:90px;
+        width:95px;
         padding-top:0px;
     }
 
@@ -395,7 +424,18 @@ a h4{
         margin-bottom:20px;
         text-align: center;
     }
-
+    .navbar{
+        background:#333;
+    }
+    .change img{
+       display: block;
+    }
+    .change1 img{
+        display: none;
+    }
+    /*.change1 img{*/
+        /*display: none;*/
+    /*}*/
     .te{margin-top:0px;}
 
     .cp-zs{padding-top:0px;}
@@ -448,16 +488,37 @@ a h4{
     .phonehide{
         display:none;
     }
-    #hi{
-        /*padding:0 4px;*/
-        /*width:60%;*/
-        /*positoion:absolute;*/
-
-    }
     #map{
         width: 100%;
         height: 60%;
     }
+    .font-box{
+        text-align:center;
+    }
+    .pic img{
+        width:60%;
+        padding-top:20px;
+    }
+    ::-webkit-scrollbar {
+        width:2px;
+        height:2px;
+    }
+    ::-webkit-scrollbar-button {
+        background-color: #FF7677;
+        display: none
+    }
+    ::-webkit-scrollbar-track {
+        background:#333;
+    }
+    ::-webkit-scrollbar-thumb {
+        background:#333; //滚动条颜色
+        border-radius:2px;
+    }
+    ::-webkit-scrollbar-corner {
+        background: #82AFFF;
+        display: none
+    }
+
 }
 
 

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="http://gd.qiniuniu.com/poblic/images/logo.jpg">
     <title></title>
 
 </head>
@@ -15,8 +16,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{:url('home/index/index')}">
+                <a class="navbar-brand change1" href="{:url('home/index/index')}">
                     <img class="img-responsive center-block" src="__PUBLIC__/common/images/logo1.png">
+                </a>
+                <a class="navbar-brand change" href="{:url('home/index/index')}">
+                    <img class="img-responsive center-block" src="__PUBLIC__/common/images/logo-1.png">
                 </a>
             </div>
             <div class="collapse navbar-collapse" id="example">
@@ -41,7 +45,15 @@
         $(this).addClass('active-imgbg').siblings().removeClass('active-imgbg')
     },function () {
         $(this).removeClass('active-imgbg')
-    })
+    });
+
+//    var init = function (){
+//        var width = document.body.clientWidth;
+//        if(width<768){
+//            $(".navbar-brand img").attr("src","__PUBLIC__/common/images/logo-1.png")
+//        }
+//    }
+//    init();
 </script>
 </body>
 </html>
