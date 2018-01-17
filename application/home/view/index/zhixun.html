@@ -67,27 +67,25 @@
             <div class="tab-content col-sm-12">
                 <div id="home" class="tab-pane fade in active">
                     <div class="row  zx-margin">
+                        {volist name="info" id="vo"}
                         <div class="col-sm-4">
-                            <a href="#"><img class="img-responsive center-block" src="__PUBLIC__/common/images/zx-1.png"></a>
+                            <a href="#"><img class="img-responsive center-block" src="__PUBLIC__/common/images/{$vo.banner}"></a>
 
                             <div class="zx-title">
-                                <h5>赤霞珠（Cabernet Sauvignon）</h5>
-                                <p><u>2018.01.01</u></p>
-                                <p class="overflow overflow-3">
-                                    <a href="{:url('home/index/ZXxianqin')}">作为世界上最著名的红葡萄品种，赤霞珠（Cabernet Sauvignon）的历史并不是
-                                        特别悠久。它与梅洛（Merlot）一起堪称世界上种植面积最广泛的两种深色葡萄品种，二者的种植面积不相上下。
-                                        赤霞珠的起源一直以来是一个谜。1996年，加州大学戴维斯分校（UC Davis）葡萄种植与酿造学部门（UC Davis Department of Viticulture and Enology）
-                                        的卡罗尔·梅雷迪斯博士（Dr. Carole Meredith）带领的研究团队通过DNA分型发现了赤霞珠的真正起源。研究结果显示，赤霞珠正是由品丽珠（Cabernet Franc）
-                                        和波尔多（Bordeaux）白葡萄品种长相思（Sauvignon Blanc）在17世纪时通过自然杂交形成。这就解释了为什么赤霞珠的香气与其父母本如此相似，也解释了为什么品丽
-                                        珠在文献记录中出现的时间比赤霞珠更早。
+                                <h5>{$vo.title}</h5>
+                                <p><u>{$vo.time|date="Y-m-d",###}</u></p>
+                                <p>
+                                    <a href="{:url('home/index/ZXxianqin')}" >
+                                        {$vo.content|substr=0,300}
                                     </a>
                                 </p>
                             </div>
 
                         </div>
+                        {/volist}
 
 
-                        <div class="col-sm-4">
+<!--                        <div class="col-sm-4">
                             <a href="{:url('home/index/ZXxianqin')}"><img class="img-responsive center-block" src="__PUBLIC__/common/images/zx-2.png"></a>
 
                             <div class="zx-title">
@@ -160,10 +158,10 @@
                                     </a>
                                 </p>
                             </div>
-                        </div>
+                        </div>-->
                     </div>
                     <div class="row btnprimary">
-                        <nav aria-label="Page navigation">
+                        <!--<nav aria-label="Page navigation">
                             <ul class="pagination" style="margin:0;">
                                 <li>
                                     <a href="#" aria-label="Previous">
@@ -181,7 +179,8 @@
                                     </a>
                                 </li>
                             </ul>
-                        </nav>
+                        </nav>-->
+                        {$info->render()}
                     </div>
                 </div>
                 <div id="menu1" class="tab-pane fade">

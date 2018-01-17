@@ -48,4 +48,11 @@ class Index extends Controller{
             return $this->fetch();
         }
 
+    //显示红酒资讯
+    public function showInfo(){
+        $info = Db::table("product")->order('id desc')->paginate(6);
+        $this->assign('info',$info);
+        return $this->fetch('zhixun');
+    }
+
 }
