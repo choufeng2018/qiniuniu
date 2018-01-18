@@ -20,6 +20,8 @@ class Bootstrap extends Paginator
      * 上一页按钮
      * @param string $text
      * @return string
+     * $text = "&laquo;"
+     * $text = '&raquo;'
      */
     protected function getPreviousButton($text = "&laquo;")
     {
