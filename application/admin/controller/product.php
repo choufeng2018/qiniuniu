@@ -8,12 +8,15 @@
 namespace app\admin\controller;
 use think\Controller;
 use think\Request;
+use think\Db;
 
 class Product extends Controller{
     public function publishwine(){
         return $this->fetch();
     }
     public function winelist(){
+        $list = Db::table('products')->order('id desc')->paginate(10);
+        $this->assign('list',$list);
         return $this->fetch();
     }
 
@@ -46,5 +49,7 @@ class Product extends Controller{
             }
         }
     }
+
+
 
 }

@@ -2,11 +2,129 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
-
+    <title>后台首页</title>
+    <link rel="stylesheet" href="__PUBLIC__/admin/css/main.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/common/css/bootstrap.css">
+    <script src="__PUBLIC__/common/js/jquery-3.2.1.min.js"></script>
+    <script src="__PUBLIC__/common/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body class="index-body">
+<div id="header">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="logo">
 
+            </div>
+        </div>
+    </nav>
 
+</div>
+<div id="contents">
+    <div class="container">
+        <div id="content-left" class="col-md-2">
+            <div class="menu_box">
+                <ul class="menu_box_ul">
+                    <li>
+                        <ul class="sub_menu">
+                            <li class="menu_index"><a href="#" target="main"><i class="fa fa-fw fa-home"></i>首页</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <h3><i class="fa fa-fw fa-clipboard"></i>资讯中心</h3>
+                        <ul class="sub_menu">
+                            <li class=""><a href="{:url('admin/index/publish')}" target="main">发布资讯</a></li>
+                            <li class=""><a href="{:url('admin/index/plist')}" target="main">资讯列表</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <div id="content-right" class="col-md-10">
+            <div class="result_wrap" name="main">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <td>产品详图</td>
+                        <td>英文标题</td>
+                        <td>标题</td>
+                        <td>产地</td>
+                        <td>年份</td>
+                        <td>品种</td>
+                        <td>酒精度</td>
+                        <td>产考价格</td>
+                        <td>酒品提供</td>
+                        <td>外观</td>
+                        <td>香气</td>
+                        <td>滋味</td>
+                        <td>总体质量</td>
+                        <td>基本分</td>
+                        <td>总评分</td>
+                        <td>编辑</td>
+                    </tr>
+                    </thead>
+                    {volist name="list" id="vo"}
+                    <tr>
+                        <td>{$vo.banner}</td>
+                        <td>{$vo.etitle}</td>
+                        <td>{$vo.title}</td>
+                        <td>{$vo.productarea}</td>
+                        <td>{$vo.year}</td>
+                        <td>{$vo.kind}</td>
+                        <td>{$vo.vol}</td>
+                        <td>{$vo.referprice}</td>
+                        <td>{$vo.winesupply}</td>
+                        <td>{$vo.appearance}</td>
+                        <td>{$vo.aroma}</td>
+                        <td>{$vo.taste}</td>
+                        <td>{$vo.quality}</td>
+                        <td>{$vo.basescore}</td>
+                        <td>{$vo.totalscore}</td>
+                        <td>
+                            <a href="{:url('admin/index/publish')}?id=">修改</a>
+                            <a href="" class="del" data-id="">删除</a>
+                        </td>
+                    </tr>
+                    {/volist}
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="row foot-buttom">
+    <div class="col-sm-12">
+        <p class="text-center">
+            Copyright @ 2014-2017.
+            <a href="#">上海臧星阁文化发展有限公司</a>
+            All Rights Reserved
+            <a>沪ICP备xxxxxx号</a>
+        </p>
+    </div>
+</div>
+<script>
+    //删除
+    $(".del").on('click',function(){
+        var id = $(this).data('id');
+        $.ajax({
+            url:"delete",
+            data:{"id":id}, //以键/值对的形式
+            type:"GET",
+            async : true,
+            dataType : "json",
+            success : function(res) {
+                if(res.success){
+                    alert('删除成功')
+                }else{
+                    alert('删除失败');
+                }
+            }
+        })
+    })
+
+</script>
 </body>
 </html>
