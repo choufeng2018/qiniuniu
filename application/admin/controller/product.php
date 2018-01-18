@@ -50,6 +50,39 @@ class Product extends Controller{
         }
     }
 
+    //修改产品详情
+    public function modify(){
+        $id = $_GET['id'];
+        $modify= Db::table('products')->where("id=$id")->find();
+        //dump($modify);
+        echo json_encode($modify);
+    }
+    public function update(){
+        $id = $_POST['id'];
+        $map = Request::instance()->except('id');
+        $info = Db::table('products')->where("id=$id")->update($map);
+        if($info){
+            $date['success'] = 'success';
+            $date['msg'] = '更新成功';
+        }else{
+            $date['fail'] = 'fail';
+            $date['msg'] = '更新失败';
+        }
+        echo json_encode($date);
+    }
+    public function delete(){
+        $id = $_GET['id'];
+        $info = Db::table('products')->where("id=$id")->delete();
+        if($info){
+            $date['success'] = 'success';
+            $date['msg'] = '删除成功';
+        }else{
+            $date['fail'] = 'fail';
+            $date['msg'] = '删除失败';
+        }
+        echo json_encode($date);
+    }
+
 
 
 }
