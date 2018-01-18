@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     {include file='public/js'}
     <title>玫瑰沸腾</title>
+    <link rel="shortcut icon" href="__PUBLIC__/common/images/logo.png">
 </head>
 <body>
 <div>
@@ -24,7 +25,7 @@
                 <!-- data-slide-to="0" -->
             </ol>
             <!-- Wrapper for slides -->
-            <div class="carousel-inner" role="listbox">
+            <div class="carousel-inner swiper-container" role="listbox">
                 <div class="item">
                     <a href="cpzhongxin.html" target="_blank"><img src="__PUBLIC__/common/images/banner1.jpg"></a>
                    <!-- <div class="carousel-caption">
@@ -441,5 +442,10 @@
 </footer>
 <!--侧边栏-->
 {include file="public/sidebar"}
+<script>
+    var mySwiper = new Swiper('.swiper-container',{
+        direction : 'horizontal',
+    })
+</script>
 </body>
 </html>
