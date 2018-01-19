@@ -155,6 +155,7 @@
                     <div class="form-group publish-box">
                         <div class="col-sm-offset-2 col-sm-10 clearfix">
                             <button type="submit" class="btn btn-primary btn-publish">发布</button>
+                            <input type="hidden" id="edit">
                         </div>
                     </div>
                 </form>
@@ -233,7 +234,15 @@
     $(".btn-publish").on("click", function () {
 
         var data={};
+        var edit = $("#edit").val();
+        console.log(edit);
+        if(edit!=""){
+            var url="update"
+            data.id = edit;
 
+        }else{
+            var url='addProduct';
+        }
         data.etitle = $("#etitle").val();
         data.title = $("#title").val();
         data.productarea = $("#productarea").val();
@@ -251,7 +260,7 @@
         data.banner = $("#img-input").val();
         //console.log(data);
         $.ajax({
-            url: 'addProduct',
+            url: url,
             type:"POST",
             data:data,
             dataType: 'json',
@@ -277,10 +286,21 @@
         dataType : "json",
         success : function(data) {
             $("#edit").val(data.id);
+            $("#etitle").val(data.etitle);
             $("#title").val(data.title);
-            $("#author").val(data.author);
-            $("#source").val(data.source);
-            $("#parent-c").val(data.cid);
+            $("#img-input").val(data.banner);
+            $("#productarea").val(data.productarea);
+            $("#year").val(data.year);
+            $("#kind").val(data.kind);
+            $("#vol").val(data.vol);
+            $("#referprice").val(data.referprice);
+            $("#winesupply").val(data.winesupply);
+            $("#appearance").val(data.appearance);
+            $("#aroma").val(data.aroma);
+            $("#taste").val(data.taste);
+            $("#quality").val(data.quality);
+            $("#basescore").val(data.basescore);
+            $("#totalscore").val(data.totalscore);
             $(".article-cover").attr("src", '__PUBLIC__/upload/'+data.banner).show();
             ue.ready(function(){
                 ue.setContent(data.content);

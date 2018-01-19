@@ -231,12 +231,14 @@
         data:{"id":id}, //以键/值对的形式
         async : true,
         dataType : "json",
-        success : function(data) {
+        success : function(data) {e
             $("#edit").val(data.id);
             $("#title").val(data.title);
-            $("#author").val(data.author);
-            $("#source").val(data.source);
-            $("#parent-c").val(data.cid);
+            $("#etitle").val(data.etitle);
+            $("#etitle").val(data.etitle);
+            $("#etitle").val(data.etitle);
+            $("#etitle").val(data.etitle);
+
             $(".article-cover").attr("src", '__PUBLIC__/upload/'+data.banner).show();
             ue.ready(function(){
                 ue.setContent(data.content);

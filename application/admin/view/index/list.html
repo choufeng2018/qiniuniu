@@ -9,14 +9,15 @@
     <script src="__PUBLIC__/common/js/bootstrap.min.js"></script>
 </head>
 <body class="index-body">
-<div id="header">
-    <nav class="navbar navbar-default">
-        <div class="container">
-            <div class="logo">
-
-            </div>
+<div class="header">
+    <div class="container">
+        <div class="logo">
+            <img class="img-responsive center-block" src="__PUBLIC__/common/images/logo1.png">
         </div>
-    </nav>
+        <ul class="name">
+            <li><a href="#">用户</a></li>
+        </ul>
+    </div>
 
 </div>
 <div id="contents">
@@ -35,6 +36,13 @@
                         <ul class="sub_menu">
                             <li class=""><a href="{:url('admin/index/publish')}" target="main">发布资讯</a></li>
                             <li class=""><a href="{:url('admin/index/plist')}" target="main">资讯列表</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h3><i class="fa fa-fw fa-clipboard"></i>产品中心</h3>
+                        <ul class="sub_menu">
+                            <li class=""><a href="{:url('admin/index/publish')}" target="main">发布产品</a></li>
+                            <li class=""><a href="{:url('admin/index/plist')}" target="main">产品列表</a></li>
                         </ul>
                     </li>
 

@@ -9,14 +9,15 @@
     <script src="__PUBLIC__/common/js/bootstrap.min.js"></script>
 </head>
 <body class="index-body">
-<div id="header">
-    <nav class="navbar navbar-default">
-        <div class="container">
-            <div class="logo">
-
-            </div>
+<div class="header"style="height:100px;">
+    <div class="container">
+        <div class="logo">
+            <img class="img-responsive center-block" src="__PUBLIC__/common/images/logo1.png">
         </div>
-    </nav>
+        <ul class="name">
+            <li><a href="#">用户</a></li>
+        </ul>
+    </div>
 
 </div>
 <div id="contents">
@@ -37,7 +38,13 @@
                             <li class=""><a href="{:url('admin/index/plist')}" target="main">资讯列表</a></li>
                         </ul>
                     </li>
-
+                    <li>
+                        <h3><i class="fa fa-fw fa-clipboard"></i>产品中心</h3>
+                        <ul class="sub_menu">
+                            <li class=""><a href="{:url('admin/product/publishwine')}" target="main">发布产品</a></li>
+                            <li class=""><a href="{:url('admin/product/winelist')}" target="main">产品列表</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -82,8 +89,8 @@
                         <td>{$vo.basescore}</td>
                         <td>{$vo.totalscore}</td>
                         <td>
-                            <a href="{:url('admin/index/publish')}?id=">修改</a>
-                            <a href="" class="del" data-id="">删除</a>
+                            <a href="{:url('admin/product/publishwine')}?id={$vo.id}">修改</a>
+                            <a href="" class="onclick" data-id="{$vo.id}">删除</a>
                         </td>
                     </tr>
                     {/volist}
@@ -107,7 +114,7 @@
 </div>
 <script>
     //删除
-    $(".del").on('click',function(){
+    $(".onclick").on('click',function(){
         var id = $(this).data('id');
         $.ajax({
             url:"delete",
