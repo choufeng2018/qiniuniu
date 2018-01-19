@@ -13,6 +13,9 @@
     <script src="__PUBLIC__/common/js/util.js"></script>
     <title>后台首页</title>
     <link rel="shortcut icon" href="__PUBLIC__/common/images/logo.png">
+    <style>
+        body{background:#bbb;}
+    </style>
 </head>
 <body class="index-body">
 <div id="header">
@@ -31,12 +34,6 @@
             <div class="menu_box">
                 <ul class="menu_box_ul">
                     <li>
-                        <ul class="sub_menu">
-                            <li class="menu_index"><a href="#" target="main"><i class="fa fa-fw fa-home"></i>首页</a></li>
-                        </ul>
-                    </li>
-
-                    <li>
                         <h3><i class="fa fa-fw fa-clipboard"></i>资讯中心</h3>
                         <ul class="sub_menu">
                             <li class=""><a href="{:url('admin/index/publish')}" target="main">发布资讯</a></li>
@@ -54,7 +51,7 @@
                 </ul>
             </div>
         </div>
-        <div id="content-right" class="col-md-10">
+        <div id="content-right" class="col-md-10" style="background:white;">
             <div class="result_wrap" name="main">
                 <form class="form-horizontal publish-form" onsubmit="return false;">
                     <div class="form-group group_value">
@@ -283,6 +280,14 @@
         })
     })
     //修改
+    $(function(){
+        if($("#content-left").height() > $("#content-right").height()){
+            $("#content-right").css("height",$("#content-left").height());
+        }else{
+            $("#content-left").css("height",$("#content-right").height());
+        }
+    })
+
 
     var arr = location.href.split('?');
     var hehe = arr[1].split('=');
@@ -317,16 +322,6 @@
 
         }
     });
-
-
-
-
-
-
-
-
-
-
 </script>
 </body>
 </html>

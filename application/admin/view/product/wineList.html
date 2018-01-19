@@ -11,6 +11,7 @@
     <style>
         table{width:100%;border:1px solid #b3b3b3}
         td{width:8%;overflow:auto;border:1px solid #b3b3b3;}
+        body{background:#bbb;}
     </style>
 </head>
 <body class="index-body">
@@ -29,12 +30,6 @@
             <div class="menu_box">
                 <ul class="menu_box_ul">
                     <li>
-                        <ul class="sub_menu">
-                            <li class="menu_index"><a href="#" target="main"><i class="fa fa-fw fa-home"></i>首页</a></li>
-                        </ul>
-                    </li>
-
-                    <li>
                         <h3><i class="fa fa-fw fa-clipboard"></i>资讯中心</h3>
                         <ul class="sub_menu">
                             <li class=""><a href="{:url('admin/index/publish')}" target="main">发布资讯</a></li>
@@ -51,15 +46,15 @@
                 </ul>
             </div>
         </div>
-        <div id="content-right" class="col-md-10">
+        <div id="content-right" class="col-md-10" style="background:white;">
             <div class="result_wrap table-responsive" name="main">
                 <table class="table table-condensed">
                     <thead>
                     <tr style="border-bottom:2px solid #b3b3b3;">
                         <td>产品详图</td>
-                        <td>产品描述</td>
-                        <td>英文标题</td>
-                        <td>标题</td>
+                        <!--<td>产品描述</td>-->
+                        <td style="width:15%;">英文标题</td>
+                        <td style="width:15%;">标题</td>
                         <td>产地</td>
                         <td>年份</td>
                         <td>品种</td>
@@ -78,7 +73,7 @@
                     {volist name="list" id="vo"}
                     <tr style="text-align:center;">
                         <td>{$vo.banner}</td>
-                        <td>{$vo.desc}</td>
+                        <!--<td>{$vo.desc}</td>-->
                         <td>{$vo.etitle}</td>
                         <td>{$vo.title}</td>
                         <td>{$vo.productarea}</td>
@@ -135,8 +130,15 @@
                 }
             }
         })
-    })
+    });
 
+    $(function(){
+        if($("#content-left").height() > $("#content-right").height()){
+            $("#content-right").css("height",$("#content-left").height());
+        }else{
+            $("#content-left").css("height",$("#content-right").height());
+        }
+    })
 </script>
 </body>
 </html>
