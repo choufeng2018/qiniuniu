@@ -7,18 +7,21 @@
     <link rel="stylesheet" href="__PUBLIC__/common/css/bootstrap.css">
     <script src="__PUBLIC__/common/js/jquery-3.2.1.min.js"></script>
     <script src="__PUBLIC__/common/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="__PUBLIC__/common/images/logo.png">
+    <style>
+        table{width:100%;border:1px solid #b3b3b3}
+        td{width:8%;overflow:auto;border:1px solid #b3b3b3;}
+    </style>
 </head>
 <body class="index-body">
-<div class="header"style="height:100px;">
-    <div class="container">
-        <div class="logo">
-            <img class="img-responsive center-block" src="__PUBLIC__/common/images/logo1.png">
+<div id="header">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="logo">
+                <img class="img-responsive center-block" src="__PUBLIC__/common/images/logo1.png">
+            </div>
         </div>
-        <ul class="name">
-            <li><a href="#">用户</a></li>
-        </ul>
-    </div>
-
+    </nav>
 </div>
 <div id="contents">
     <div class="container">
@@ -49,10 +52,10 @@
             </div>
         </div>
         <div id="content-right" class="col-md-10">
-            <div class="result_wrap" name="main">
-                <table class="table">
+            <div class="result_wrap table-responsive" name="main">
+                <table class="table table-condensed">
                     <thead>
-                    <tr>
+                    <tr style="border-bottom:2px solid #b3b3b3;">
                         <td>产品详图</td>
                         <td>产品描述</td>
                         <td>英文标题</td>
@@ -62,18 +65,18 @@
                         <td>品种</td>
                         <td>酒精度</td>
                         <td>产考价格</td>
-                        <td>酒品提供</td>
-                        <td>外观</td>
-                        <td>香气</td>
-                        <td>滋味</td>
+                        <!--<td>酒品提供</td>-->
+                        <!--<td>外观</td>-->
+                        <!--<td>香气</td>-->
+                        <!--<td>滋味</td>-->
                         <td>总体质量</td>
-                        <td>基本分</td>
+                        <!--<td>基本分</td>-->
                         <td>总评分</td>
                         <td>编辑</td>
                     </tr>
                     </thead>
                     {volist name="list" id="vo"}
-                    <tr>
+                    <tr style="text-align:center;">
                         <td>{$vo.banner}</td>
                         <td>{$vo.desc}</td>
                         <td>{$vo.etitle}</td>
@@ -83,12 +86,12 @@
                         <td>{$vo.kind}</td>
                         <td>{$vo.vol}</td>
                         <td>{$vo.referprice}</td>
-                        <td>{$vo.winesupply}</td>
-                        <td>{$vo.appearance}</td>
-                        <td>{$vo.aroma}</td>
-                        <td>{$vo.taste}</td>
+                        <!--<td>{$vo.winesupply}</td>-->
+                        <!--<td>{$vo.appearance}</td>-->
+                        <!--<td>{$vo.aroma}</td>-->
+                        <!--<td>{$vo.taste}</td>-->
                         <td>{$vo.quality}</td>
-                        <td>{$vo.basescore}</td>
+                        <!--<td>{$vo.basescore}</td>-->
                         <td>{$vo.totalscore}</td>
                         <td>
                             <a href="{:url('admin/product/publishwine')}?id={$vo.id}">修改</a>
