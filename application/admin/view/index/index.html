@@ -9,7 +9,7 @@
     <title>后台首页</title>
     <link rel="shortcut icon" href="__PUBLIC__/common/images/logo.png">
     <style>
-        body{background:#bbb}
+        body{background:#bbb;}
 
     </style>
 </head>
@@ -53,7 +53,7 @@
                     </ul>
                 </div>
             </div>
-            <div id="content-right" class="col-md-10">
+            <div id="content-right" class="col-md-10" style="background:white;">
                 <div class="result_wrap" name="main">nijd</div>
             </div>
         </div>
@@ -63,6 +63,14 @@
         <h3 class="text-center">网站后台</h3>
         <p class="text-center">蛋蛋制造蛋蛋制造蛋蛋制造蛋蛋制造蛋蛋制造蛋蛋制造蛋蛋制造蛋蛋制造蛋蛋制造蛋蛋制造蛋蛋制造蛋蛋制造蛋蛋制造蛋蛋制造蛋蛋制造蛋蛋制造</p>
     </div>
-
+    <script>
+        $(function(){
+            if($("#content-left").height() > $("#content-right").height()){
+                $("#content-right").css("height",$("#content-left").height());
+            }else{
+                $("#content-left").css("height",$("#content-right").height());
+            }
+        })
+    </script>
 </body>
 </html>
