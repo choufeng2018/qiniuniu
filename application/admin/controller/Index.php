@@ -15,7 +15,13 @@ class Index extends Controller
      */
     public function index()
     {
+        /*if(session('username')){
+            return $this->fetch();
+        }else{
+            $this->redirect('admin/login/login');
+        }*/
         return $this->fetch();
+
     }
 
    public function publish(){
