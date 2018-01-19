@@ -2,11 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="__PUBLIC__/common/css/bootstrap.css">
+    <link rel="shortcut icon" href="__PUBLIC__/common/images/logo.png">
     <title></title>
-
+    <style>
+        .login{width:400px;height:200px;position:absolute;top:35%;left:45%;text-align:center;}
+        input{margin-top:8px;border:none;background:none;outline:none;padding-left:8px;padding-bottom:4px;}
+        button{margin-top:10px;}
+        label{border:1px solid #717171;padding:2px 8px;background: #e9e9e9; width:200px;}
+    </style>
 </head>
 <body>
-
-
+<img src="__PUBLIC__/common/images/dlbg.jpg" alt="" width="100%">
+    <div class="login">
+        <form action="loginsucc" method="post">
+        <label class="glyphicon glyphicon-user"><input type="text" placeholder="请输入账号"></label>
+        <label class="glyphicon glyphicon-briefcase"><input type="text" placeholder="请输入密码"></label><br/>
+        <label><input type="submit" value="登录"></label><br/>
+        </form>
+    </div>
 </body>
 </html>

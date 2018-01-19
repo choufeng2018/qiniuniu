@@ -9,9 +9,11 @@
     <script src="__PUBLIC__/common/js/bootstrap.min.js"></script>
     <link rel="shortcut icon" href="__PUBLIC__/common/images/logo.png">
     <style>
-        table{width:100%;border:1px solid #b3b3b3}
-        td{width:8%;overflow:auto;border:1px solid #b3b3b3;}
-        body{background:#bbb;}
+        table{width:100%;border:1px solid #ccc}
+        td{width:8%;overflow:auto;border:1px solid #ccc;}
+        body{background:#f2f2f2;}
+        .menu_box_ul a{color:#961949;}
+        .pagination > .active > span{background:#b9637e;border:1px solid #b9637e}
     </style>
 </head>
 <body class="index-body">
@@ -26,18 +28,18 @@
 </div>
 <div id="contents">
     <div class="container">
-        <div id="content-left" class="col-md-2">
+        <div id="content-left" class="col-md-2" style="background:white;border-right:1px solid #b3b3b3;">
             <div class="menu_box">
-                <ul class="menu_box_ul">
+                <ul class="menu_box_ul" style="padding-top:40px;">
                     <li>
-                        <h3><i class="fa fa-fw fa-clipboard"></i>资讯中心</h3>
+                        <h4><i class="fa fa-fw fa-clipboard"></i>资讯中心</h4>
                         <ul class="sub_menu">
                             <li class=""><a href="{:url('admin/index/publish')}" target="main">发布资讯</a></li>
                             <li class=""><a href="{:url('admin/index/plist')}" target="main">资讯列表</a></li>
                         </ul>
                     </li>
                     <li>
-                        <h3><i class="fa fa-fw fa-clipboard"></i>产品中心</h3>
+                        <h4><i class="fa fa-fw fa-clipboard"></i>产品中心</h4>
                         <ul class="sub_menu">
                             <li class=""><a href="{:url('admin/product/publishwine')}" target="main">发布产品</a></li>
                             <li class=""><a href="{:url('admin/product/winelist')}" target="main">产品列表</a></li>
@@ -46,48 +48,48 @@
                 </ul>
             </div>
         </div>
-        <div id="content-right" class="col-md-10" style="background:white;">
+        <div id="content-right" class="col-md-10" style="background:white;padding:30px;">
             <div class="result_wrap table-responsive" name="main">
-                <table class="table table-condensed">
+                <table class="table table-hover">
                     <thead>
-                    <tr style="border-bottom:2px solid #b3b3b3;">
-                        <td>产品详图</td>
+                    <tr style="border-bottom:2px solid #b3b3b3;text-align: center;" class="danger">
+                        <!--<td>产品详图</td>-->
                         <!--<td>产品描述</td>-->
-                        <td style="width:15%;">英文标题</td>
+                        <!--<td style="width:15%;">英文标题</td>-->
                         <td style="width:15%;">标题</td>
                         <td>产地</td>
-                        <td>年份</td>
+                        <!--<td>年份</td>-->
                         <td>品种</td>
-                        <td>酒精度</td>
-                        <td>产考价格</td>
+                        <!--<td>酒精度</td>-->
+                        <!--<td>产考价格</td>-->
                         <!--<td>酒品提供</td>-->
                         <!--<td>外观</td>-->
                         <!--<td>香气</td>-->
                         <!--<td>滋味</td>-->
-                        <td>总体质量</td>
+                        <!--<td>总体质量</td>-->
                         <!--<td>基本分</td>-->
-                        <td>总评分</td>
+                        <!--<td>总评分</td>-->
                         <td>编辑</td>
                     </tr>
                     </thead>
                     {volist name="list" id="vo"}
                     <tr style="text-align:center;">
-                        <td>{$vo.banner}</td>
+                        <!--<td>{$vo.banner}</td>-->
                         <!--<td>{$vo.desc}</td>-->
-                        <td>{$vo.etitle}</td>
-                        <td>{$vo.title}</td>
+                        <!--<td>{$vo.etitle}</td>-->
+                        <td style="color:#992247">{$vo.title}</td>
                         <td>{$vo.productarea}</td>
-                        <td>{$vo.year}</td>
+                        <!--<td>{$vo.year}</td>-->
                         <td>{$vo.kind}</td>
-                        <td>{$vo.vol}</td>
-                        <td>{$vo.referprice}</td>
+                        <!--<td>{$vo.vol}</td>-->
+                        <!--<td>{$vo.referprice}</td>-->
                         <!--<td>{$vo.winesupply}</td>-->
                         <!--<td>{$vo.appearance}</td>-->
                         <!--<td>{$vo.aroma}</td>-->
                         <!--<td>{$vo.taste}</td>-->
-                        <td>{$vo.quality}</td>
+                        <!--<td>{$vo.quality}</td>-->
                         <!--<td>{$vo.basescore}</td>-->
-                        <td>{$vo.totalscore}</td>
+                        <!--<td>{$vo.totalscore}</td>-->
                         <td>
                             <a href="{:url('admin/product/publishwine')}?id={$vo.id}">修改</a>
                             <a href="" class="onclick" data-id="{$vo.id}">删除</a>
@@ -96,7 +98,7 @@
                     {/volist}
 
                 </table>
-
+                {$list->render()}
             </div>
         </div>
     </div>
