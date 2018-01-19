@@ -10,8 +10,12 @@ use think\Controller;
 use think\Db;
 
 class Index extends Controller{
+    //首页信息
     public function index(){
-
+        $product = Db::table("product")->order('id desc')->paginate(6);
+        $this->assign('product',$product);
+        $products = Db::table("products")->order('id desc')->paginate(8);
+        $this->assign('products',$products);
         return $this->fetch();
     }
 
