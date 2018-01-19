@@ -141,6 +141,12 @@
                         </div>
                     </div>
                     <div class="form-group group_value">
+                        <label  class="col-sm-2 control-label">产品描述：</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="desc" name="desc"  placeholder="添加描述性文字"  style="width: 20%">
+                        </div>
+                    </div>
+                    <div class="form-group group_value">
                         <label  class="col-sm-2 control-label">产品封面：</label>
                         <div class="col-sm-10">
                             <button class="btn btn-success btn-img">点此上传产品封面</button>
@@ -258,6 +264,7 @@
         data.basescore = $("#basescore").val();
         data.totalscore = $("#totalscore").val();
         data.banner = $("#img-input").val();
+        data.desc = $("#desc").val();
         //console.log(data);
         $.ajax({
             url: url,
@@ -301,6 +308,7 @@
             $("#quality").val(data.quality);
             $("#basescore").val(data.basescore);
             $("#totalscore").val(data.totalscore);
+            $("#desc").val(data.desc);
             $(".article-cover").attr("src", '__PUBLIC__/upload/'+data.banner).show();
             ue.ready(function(){
                 ue.setContent(data.content);

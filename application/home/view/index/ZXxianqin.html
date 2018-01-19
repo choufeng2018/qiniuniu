@@ -24,40 +24,40 @@
         </ol>
     </div>
     <div class="row">
-        <h3 class="col-sm-12 text-center">这款酒来自美国加州，酒色呈淡粉色</h3>
+        <h3 class="col-sm-12 text-center">{$info.title}</h3>
         <ul class="zx_wenzhan text-center">
             <li class="col-sm-3 col-xs-12">
-                <b>来源 ：</b><i>xxx</i>
+                <b>来源 ：</b><i>{$info.source}</i>
             </li>
             <li class="col-sm-3 col-xs-12">
-                <b>作者 ：</b><i>发过的</i>
+                <b>作者 ：</b><i>{$info.author}</i>
             </li>
             <li class="col-sm-3 col-xs-12">
-                <b>发布时间 ：</b><i>20180.1.1</i>
+                <b>发布时间 ：</b><i>{$info.time|date="Y-m-d",###}</i>
             </li>
             <li class="col-sm-3 col-xs-12">
-                <b>888</b><i>次浏览</i>
+                <b>{$info.views}</b><i>次浏览</i>
             </li>
         </ul>
     </div>
     <div class="row">
         <div class="col-sm-12 text-justify" style="border: 1px solid #a55c3f;height:100%;margin:10px 0;padding:15px;">
-            根植于公司创立者长期来对全世界葡萄品种、葡萄酒类型和风格、以及葡萄酒产区的考察、品鉴、学习和研究，
-            结合对中国饮食文化的品尝、理解和体会，致力将中西方美酒、美食文化二者完美融和。
-            根植于公司创立者长期来对全世界葡萄品种、葡萄酒类型和风格、以及葡萄酒产区的考察、品鉴、学习和研究，
-            结合对中国饮食文化的品尝、理解和体会，致力将中西方美酒、美食文化二者完美融和。
+            {$info.abstract}
         </div>
     </div>
     <div class="row" style="margin:20px 0;">
-        <img class="img-responsive center-block" src="__PUBLIC__/common/images/xuqiu.png">
+        <img class="img-responsive center-block" src="__PUBLIC__/common/images/{$info.banner}">
     </div>
     <div class="row"  style="margin:20px 0;">
+       {$info.content}
+    </div>
+<!--    <div class="row"  style="margin:20px 0;">
         <h5>1.速度要适宜</h5>
         <p>
             上海藏星阁文化发展有限公司是一家独特的美酒文化培育和推广机构。
             根植于公司创立者长期来对全世界葡萄品种、葡萄酒类型和风格、以及葡萄酒产区的考察、品鉴、学习和研究，
             结合对中国饮食文化的品尝、理解和体会，致力将中西方美酒、美食文化二者完美融和。
-            公司现有品牌<i class="mei-te">“玫瑰沸腾”（PopRose）</i>，专注倡导和普及最炫丽、最浪漫、最时尚、最适合中国饮食文化的葡萄酒---玫瑰红。
+            公司现有品牌<i class="mei-te">“玫瑰沸腾”（PopRose）</i>，专注倡导和普及最炫丽、最浪漫、最时尚、最适合中国饮食文化的葡萄酒-&#45;&#45;玫瑰红。
         </p>
     </div>
     <div class="row"  style="margin:20px 0;">
@@ -66,20 +66,11 @@
             上海藏星阁文化发展有限公司是一家独特的美酒文化培育和推广机构。
             根植于公司创立者长期来对全世界葡萄品种、葡萄酒类型和风格、以及葡萄酒产区的考察、品鉴、学习和研究，
             结合对中国饮食文化的品尝、理解和体会，致力将中西方美酒、美食文化二者完美融和。
-            公司现有品牌<i class="mei-te">“玫瑰沸腾”（PopRose）</i>，专注倡导和普及最炫丽、最浪漫、最时尚、最适合中国饮食文化的葡萄酒---玫瑰红。
+            公司现有品牌<i class="mei-te">“玫瑰沸腾”（PopRose）</i>，专注倡导和普及最炫丽、最浪漫、最时尚、最适合中国饮食文化的葡萄酒-&#45;&#45;玫瑰红。
         </p>
-    </div>
-    <div class="row"  style="margin:20px 0;">
-        <h5>1.速度要适宜</h5>
-        <p>
-            上海藏星阁文化发展有限公司是一家独特的美酒文化培育和推广机构。
-            根植于公司创立者长期来对全世界葡萄品种、葡萄酒类型和风格、以及葡萄酒产区的考察、品鉴、学习和研究，
-            结合对中国饮食文化的品尝、理解和体会，致力将中西方美酒、美食文化二者完美融和。
-            公司现有品牌<i class="mei-te">“玫瑰沸腾”（PopRose）</i>，专注倡导和普及最炫丽、最浪漫、最时尚、最适合中国饮食文化的葡萄酒---玫瑰红。
-        </p>
-    </div>
+    </div>-->
     <div class="row">
-        <p class="col-sm-12 xq-page">上一篇： <i>无</i></p>
+        <p class="col-sm-12 xq-page">上一篇： <a href="#" style="color: #a55c3f;">绿的索拉卡</a></p>
         <p class="col-sm-12 xq-page">下一篇： <a href="#" style="color: #a55c3f;">绿科家纺的索拉卡</a></p>
     </div>
 </div>

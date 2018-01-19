@@ -51,6 +51,7 @@ class Index extends Controller
     public function receiveProduct(){
         $map['banner'] = $_POST['banner'];
         $map['title'] = $_POST['title'];
+        $map['abstract'] = $_POST['abstract'];
         $map['author'] = $_POST['author'];
         $map['source'] = $_POST['source'];
         $map['content'] = $_POST['content'];
@@ -77,6 +78,7 @@ class Index extends Controller
         $id = $_POST['id'];
         $map['cid'] = $_POST['cid'];
         $map['title'] = $_POST['title'];
+        $map['abstract'] = $_POST['abstract'];
         $map['content'] = $_POST['content'];
         $map['banner'] = $_POST['banner'];
         $map['author'] = $_POST['author'];

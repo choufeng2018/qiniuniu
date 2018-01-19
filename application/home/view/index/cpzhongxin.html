@@ -25,16 +25,18 @@
     </div>
     <div>
         <div class="row cpzx_img">
+            {volist name="info" id="vo"}
             <div class="col-sm-3 col-xs-6">
-                <a href="{:url('home/index/cpxianqin')}">
-                    <div class="shadow-img"><img class="img-responsive" src="__PUBLIC__/common/images/img5.png"></div>
+                <a href="{:url('home/index/showDetail')}?id={$vo.id}">
+                    <div class="shadow-img"><img class="img-responsive" src="__PUBLIC__/common/images/{$vo.banner}"></div>
                 </a>
-                <a href="{:url('home/index/cpxianqin')}">
-                    <h4>黎赛桃红葡萄酒</h4>
-                    <h4>Rosé des Riceys</h4>
+                <a href="{:url('home/index/showDetail')}?id={$vo.id}">
+                    <h4>{$vo.title}</h4>
+                    <h4>{$vo.etitle}</h4>
                 </a>
             </div>
-            <div class="col-sm-3 col-xs-6">
+            {/volist}
+            <!--<div class="col-sm-3 col-xs-6">
                 <a href="{:url('home/index/cpxianqin')}">
                     <div class="shadow-img"><img class="img-responsive" src="__PUBLIC__/common/images/img6.png"></div>
                 </a>
@@ -60,9 +62,9 @@
                     <h4>忘忧堡</h4>
                     <h4>Chateau Chasse-Spleen</h4>
                 </a>
-            </div>
+            </div>-->
         </div>
-        <div class="row cpzx_img">
+<!--        <div class="row cpzx_img">
             <div class="col-sm-3 col-xs-6">
                 <a href="{:url('home/index/cpxianqin')}">
                     <div class="shadow-img"><img class="img-responsive" src="__PUBLIC__/common/images/img9.png"></div>
@@ -99,11 +101,11 @@
                     <h4>Amour de Deutz</h4>
                 </a>
             </div>
-        </div>
+        </div>-->
     </div>
 
     <div class="row btnprimary">
-        <nav aria-label="Page navigation">
+        <!--<nav aria-label="Page navigation">
             <ul class="pagination">
                 <li>
                     <a href="#" aria-label="Previous">
@@ -121,7 +123,8 @@
                     </a>
                 </li>
             </ul>
-        </nav>
+        </nav>-->
+        {$info->render()}
     </div>
     <div style="margin-bottom:50px;"></div>
 </div>

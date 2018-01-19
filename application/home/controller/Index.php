@@ -55,4 +55,28 @@ class Index extends Controller{
         return $this->fetch('zhixun');
     }
 
+    //显示产品中心
+    public function showProduct(){
+        $info = Db::table("products")->order('id desc')->field('id,title,etitle,banner')->paginate(8);
+        $this->assign('info',$info);
+        return $this->fetch('cpzhongxin');
+    }
+
+    //显示产品详情
+    public function showDetail(){
+        $id = $_GET['id'];
+        $info = Db::table('products')->where("id=$id")->find();
+        $this->assign('info',$info);
+        return $this->fetch('cpxianqin');
+    }
+
+    //显示咨询详情
+    public function showzxDetail(){
+        $id = $_GET['id'];
+        Db::table('product')->where('id', $id)->setInc('views');
+        $info = Db::table('product')->where("id=$id")->find();
+        $this->assign('info',$info);
+        return $this->fetch('ZXxianqin');
+    }
+
 }
