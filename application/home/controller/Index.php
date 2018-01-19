@@ -73,9 +73,13 @@ class Index extends Controller{
     //显示咨询详情
     public function showzxDetail(){
         $id = $_GET['id'];
+        $next = Db::table('product')->order('id asc')->where("id>$id")->field('id,title')->find();
+        $pre = Db::table('product')->order('id desc')->where("id<$id")->field('id,title')->find();
         Db::table('product')->where('id', $id)->setInc('views');
         $info = Db::table('product')->where("id=$id")->find();
         $this->assign('info',$info);
+        $this->assign('pre',$pre);
+        $this->assign('next',$next);
         return $this->fetch('ZXxianqin');
     }
 
