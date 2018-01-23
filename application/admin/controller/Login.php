@@ -21,11 +21,14 @@ class Login extends Controller{
         if($info){
             session('username',$map['username']);
             //设置成功后跳转页面的地址，默认的返回页面是$_SERVER['HTTP_REFERER']
-            $this->success('登录成功', 'Index/index');
+            $date['success'] = 'success';
+            $date['msg'] = '登录成功';
         } else {
             //错误页面的默认跳转页面是返回前一页，通常不需要设置
-            $this->error('登录失败','Login/login');
+            $date['fail'] = 'fail';
+            $date['msg'] = '登录失败';
         }
+        echo json_encode($date);
     }
 
     //退出登录

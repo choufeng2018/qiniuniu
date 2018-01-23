@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="__PUBLIC__/admin/css/main.css"/>
     <link rel="stylesheet" href="__PUBLIC__/common/css/bootstrap.css">
+    <script src="__PUBLIC__/common/js/jquery-3.2.1.min.js"></script>
+    <script src="__PUBLIC__/common/js/bootstrap.min.js"></script>
     <link rel="shortcut icon" href="__PUBLIC__/common/images/logo.png">
     <title></title>
     <style>
@@ -16,11 +19,36 @@
 <body>
 <img src="__PUBLIC__/common/images/dlbg.jpg" alt="" width="100%">
     <div class="login" style="position: fixed;">
-        <form action="loginsucc" method="post">
-        <label class="glyphicon glyphicon-user"><input type="text" placeholder="请输入账号" name="username"></label>
-        <label class="glyphicon glyphicon-briefcase"><input type="text" placeholder="请输入密码" name="password"></label><br/>
-        <label><input type="submit" value="登录"></label>
+        <form action="loginsucc" method="post" onsubmit="javascript:return false">
+        <label class="glyphicon glyphicon-user"><input type="text" placeholder="请输入账号" name="username" id="username"></label>
+        <label class="glyphicon glyphicon-briefcase"><input type="text" placeholder="请输入密码" name="password" id="password"></label><br/>
+        <label><input class="loginbtn" type="submit" value="登录"></label>
         </form>
     </div>
 </body>
+<script>
+   $(function(){
+       $(".loginbtn").click(function(){
+            var data = {};
+           data.username = $("#username").val();
+           data.password = $("#password").val();
+           $.ajax({
+               url: 'loginsucc',
+               type:"POST",
+               data:data,
+               dataType: 'json',
+               success:function (res) {
+                   if(res.success){
+                       alert('登录成功');
+                       location.href='{:url("index/index")}';
+                   }else{
+                       alert('登录失败');
+                       location.href='{:url("login/login")}';
+                   }
+
+               }
+           })
+       })
+   })
+</script>
 </html>
