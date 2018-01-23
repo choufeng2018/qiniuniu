@@ -15,7 +15,13 @@
     <link rel="shortcut icon" href="__PUBLIC__/common/images/logo.png">
     <style>
         body{background:#f2f2f2;}
-        .menu_box_ul a{color:#961949;}
+        .menu_box_ul a:hover{color:#961949;}
+        .cenB{padding-top:10px;}
+        .topB li a{background:#b9637e;color:white;line-height:16px;padding:4px;border-radius:4px;text-decoration:none;}
+        .topB ul{float:right;}
+        .cenB li{float:left;}
+        .cenB a{text-decoration:none;}
+        .sub_menu li{margin-top:4px;margin-left:-10px;}
     </style>
 </head>
 <body class="index-body">
@@ -25,24 +31,28 @@
             <div class="logo">
                 <img class="img-responsive center-block" src="__PUBLIC__/common/images/logo1.png">
             </div>
+            <ul class="name">
+                <li><a href="#">{$Think.session.username}</a></li>
+                <li><a href="{:url('admin/login/tc')}">退出</a></li>
+            </ul>
         </div>
     </nav>
 
 </div>
 <div id="contents">
-    <div class="container">
-        <div id="content-left" class="col-md-2" style="background:white;border-right:1px solid #b3b3b3;">
+    <div class="container pot">
+        <div id="content-left" class="col-md-2">
             <div class="menu_box">
                 <ul class="menu_box_ul">
                     <li>
-                        <h3><i class="fa fa-fw fa-clipboard"></i>资讯中心</h3>
+                        <h4 class=""><i class="fa fa-fw fa-clipboard glyphicon glyphicon-sound-5-1"></i>&nbsp;资讯中心</h4>
                         <ul class="sub_menu">
                             <li class=""><a href="{:url('admin/index/publish')}" target="main">发布资讯</a></li>
                             <li class=""><a href="{:url('admin/index/plist')}" target="main">资讯列表</a></li>
                         </ul>
                     </li>
                     <li>
-                        <h3><i class="fa fa-fw fa-clipboard"></i>产品中心</h3>
+                        <h4><i class="fa fa-fw fa-clipboard glyphicon glyphicon-tags"></i>&nbsp;产品中心</h4>
                         <ul class="sub_menu">
                             <li class=""><a href="{:url('admin/product/publishwine')}" target="main">发布产品</a></li>
                             <li class=""><a href="{:url('admin/product/winelist')}" target="main">产品列表</a></li>
@@ -54,7 +64,19 @@
         </div>
         <div id="content-right" class="col-md-10" style="background:white;">
             <div class="result_wrap" name="main">
+                <div class="cenB clearfix">
+                    <ul>
+                        <li><a href="###"><i class="glyphicon glyphicon-sound-5-1"></i>&nbsp;资讯中心</a></li>
+                        <li>>></li>
+                        <li><a href="###">资讯列表</a></li>
+                    </ul>
+                </div>
                 <span style="width: 100px;height: 30px;display: block;"></span>
+                <div class="topB clearfix">
+                    <ul>
+                        <li><a href="{:url('admin/index/publish')}">发布资讯</a></li>
+                    </ul>
+                </div>
                 <form class="form-horizontal publish-form" onsubmit="return false;">
                     <div class="form-group group_value">
                         <label  class="col-sm-2 control-label">英文标题：</label>
@@ -181,6 +203,8 @@
             All Rights Reserved
             <a>沪ICP备xxxxxx号</a>
         </p>
+        <p style="text-align: center;">CopyRight © 2017- <a href="http://www.qiniuniu.com">
+            <img src="__PUBLIC__/common/images/qiniuniu.png"/></a>  All Rights Reserved.</p>
     </div>
 </div>
 <script>

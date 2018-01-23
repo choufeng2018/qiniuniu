@@ -12,19 +12,42 @@
         .login{width:400px;height:200px;position:absolute;top:35%;left:45%;text-align:center;}
         input{margin-top:8px;border:none;background:none;outline:none;padding-left:8px;padding-bottom:4px;}
         button{margin-top:10px;}
-        label{border:1px solid #717171;padding:2px 8px;background: #e9e9e9; width:200px;}
-       img{position:fixed;top: 0;left:0;}
+        label{
+            border:1px solid #717171;
+            padding:2px 8px;
+            background:white;
+            width:200px;
+        }
+        .foot-buttom{
+            position:absolute;
+            bottom:0;
+        }
+        #bgimg{
+            position:fixed;
+            top:0;left:0;
+        }
     </style>
 </head>
 <body>
-<img src="__PUBLIC__/common/images/dlbg.jpg" alt="" width="100%">
+<img src="__PUBLIC__/common/images/dlbg.jpg" alt="" width="100%" id="bgimg">
     <div class="login" style="position: fixed;">
         <form action="loginsucc" method="post" onsubmit="javascript:return false">
         <label class="glyphicon glyphicon-user"><input type="text" placeholder="请输入账号" name="username" id="username"></label>
-        <label class="glyphicon glyphicon-briefcase"><input type="text" placeholder="请输入密码" name="password" id="password"></label><br/>
+        <label class="glyphicon glyphicon-briefcase"><input type="password" placeholder="请输入密码" name="password" id="password"></label><br/>
         <label><input class="loginbtn" type="submit" value="登录"></label>
         </form>
     </div>
+<div class="row foot-buttom">
+    <div class="col-sm-12">
+        <p class="text-center">
+            Copyright @ 2014-2017.
+            <a href="#">上海臧星阁文化发展有限公司</a>
+            All Rights Reserved
+            <a>沪ICP备xxxxxx号</a>
+        </p>
+        <p style="text-align: center;">CopyRight © 2017- <a href="http://www.qiniuniu.com"><img src="__PUBLIC__/common/images/qiniuniu.png"/></a>  All Rights Reserved.</p>
+    </div>
+</div>
 </body>
 <script>
    $(function(){
@@ -36,11 +59,11 @@
                url: 'loginsucc',
                type:"POST",
                data:data,
-               dataType: 'json',
+               dataType:'json',
                success:function (res) {
                    if(res.success){
                        alert('登录成功');
-                       location.href='{:url("index/index")}';
+                       location.href='{:url("index/plist")}';
                    }else{
                        alert('登录失败');
                        location.href='{:url("login/login")}';

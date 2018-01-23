@@ -18,7 +18,14 @@ ul{list-style: none;}
     padding: 0 20px;
     color: #a55c3f;
 }
-
+.clearfix:after{
+    content:".";
+    clear:both;
+    display:block;
+    height:0;
+    overflow:hidden;
+    visibility:hidden;
+}
 
 
 
@@ -42,10 +49,10 @@ ul{list-style: none;}
 }
 .s1{background: #a55c3f;}
 .s2{background:firebrick;}
-
 .foot-buttom{
     padding-top:30px;
+    width:100%;
+    background:white;
+    margin-top:30px;
 }
-
-
-
+.pot{padding-top:30px;}
