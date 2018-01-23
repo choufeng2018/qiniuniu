@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="__PUBLIC__/admin/css/main.css"/>
@@ -7,45 +7,72 @@
     <script src="__PUBLIC__/common/js/jquery-3.2.1.min.js"></script>
     <script src="__PUBLIC__/common/js/bootstrap.min.js"></script>
     <link rel="shortcut icon" href="__PUBLIC__/common/images/logo.png">
-    <title></title>
+    <title>登录页面</title>
     <style>
-        .login{width:400px;height:200px;position:absolute;top:35%;left:45%;text-align:center;}
-        input{margin-top:8px;border:none;background:none;outline:none;padding-left:8px;padding-bottom:4px;}
-        button{margin-top:10px;}
-        label{
-            border:1px solid #717171;
-            padding:2px 8px;
-            background:white;
-            width:200px;
+        *{padding:0;margin:0;}
+        .login{width:444px;
+            height:327px;
+            padding:13px 30px;
+            position:absolute;
+            top:30%;
+            right:18%;
+            text-align: center;
+            background:rgba(255,255,255,0.5);
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(91,91,91,.1);
         }
+        form{padding-top:26px;margin-bottom:18px;}
+        button{margin-top:10px;}
         .foot-buttom{
             position:absolute;
             bottom:0;
         }
+        .imgb img{padding:16px 0;}
         #bgimg{
             position:fixed;
             top:0;left:0;
+        }
+        input{
+            width:280px;
+            height:36px;
+            border-radius:8px;
+            padding-left:6px;
+            margin-bottom:28px;
+            background:rgba(255,255,255,.1);
+            border:1px solid rgba(0,0,0,.6);
+        }
+        .inp>input{
+            width:240px;
+            background:rgb(241,41,46);
+           border:none;
+            color:white;
+            margin-top:10px;
+        }
+        span{
+            color:rgb(241,41,46);
+            font-size:18px;
         }
     </style>
 </head>
 <body>
 <img src="__PUBLIC__/common/images/dlbg.jpg" alt="" width="100%" id="bgimg">
     <div class="login" style="position: fixed;">
+        <div style="width:100%;border-bottom:1px solid rgba(110,32,112,0.5)" class="imgb"> <img src="__PUBLIC__/common/images/dl.png" alt=""></div>
         <form action="loginsucc" method="post" onsubmit="javascript:return false">
-        <label class="glyphicon glyphicon-user"><input type="text" placeholder="请输入账号" name="username" id="username"></label>
-        <label class="glyphicon glyphicon-briefcase"><input type="password" placeholder="请输入密码" name="password" id="password"></label><br/>
-        <label><input class="loginbtn" type="submit" value="登录"></label>
+            <span>账号：</span><input type="text" placeholder="请输入账号" name="username" id="username"></br>
+        <span>密码：</span><input type="password" placeholder="请输入密码" name="password" id="password"><br/>
+              <div style="width:401px;text-align:center;" class="inp"><input class="loginbtn" type="submit" value="登录"></div>
         </form>
     </div>
 <div class="row foot-buttom">
     <div class="col-sm-12">
         <p class="text-center">
-            Copyright @ 2014-2017.
+            Copyright @ 2014-2018.
             <a href="#">上海臧星阁文化发展有限公司</a>
             All Rights Reserved
-            <a>沪ICP备xxxxxx号</a>
+            <a>沪ICP备17055257号</a>
         </p>
-        <p style="text-align: center;">CopyRight © 2017- <a href="http://www.qiniuniu.com"><img src="__PUBLIC__/common/images/qiniuniu.png"/></a>  All Rights Reserved.</p>
+        <p style="text-align:center">技术支持:<a href="http://www.qiniuniu.com/"> <img src="__PUBLIC__/common/images/qiniuniu.png" alt=""></a></p>
     </div>
 </div>
 </body>
