@@ -10,15 +10,16 @@
         input{margin-top:8px;border:none;background:none;outline:none;padding-left:8px;padding-bottom:4px;}
         button{margin-top:10px;}
         label{border:1px solid #717171;padding:2px 8px;background: #e9e9e9; width:200px;}
+       img{position:fixed;top: 0;left:0;}
     </style>
 </head>
 <body>
 <img src="__PUBLIC__/common/images/dlbg.jpg" alt="" width="100%">
-    <div class="login">
+    <div class="login" style="position: fixed;">
         <form action="loginsucc" method="post">
         <label class="glyphicon glyphicon-user"><input type="text" placeholder="请输入账号" name="username"></label>
         <label class="glyphicon glyphicon-briefcase"><input type="text" placeholder="请输入密码" name="password"></label><br/>
-        <label><input type="submit" value="登录"></label><br/>
+        <label><input type="submit" value="登录"></label>
         </form>
     </div>
 </body>

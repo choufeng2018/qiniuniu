@@ -23,10 +23,11 @@ ul{list-style: none;}
 
 
 #content-left{
-    background-color: #e7e8eb;
+    background-color:white;
+    border-right:1px solid #b3b3b3;
 }
 #content-right {
-    background-color: #dddddd;
+    background-color:#fff;
 }
 
 .table tr a{
@@ -41,5 +42,10 @@ ul{list-style: none;}
 }
 .s1{background: #a55c3f;}
 .s2{background:firebrick;}
+
+.foot-buttom{
+    padding-top:30px;
+}
+
 
 

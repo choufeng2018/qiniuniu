@@ -9,33 +9,29 @@
     <title>后台首页</title>
     <link rel="shortcut icon" href="__PUBLIC__/common/images/logo.png">
     <style>
-        body{background:#bbb;}
+        body{background:#f2f2f2;}
         .menu_box_ul a{color: #961949;}
+        .name>li{line-height:78px;}
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="container">
+    <div class="header" style="background-color:#f8f8f8;height:80px;">
+        <div class="container" style="height:80px;" >
             <div class="logo">
-                <img class="img-responsive center-block" src="__PUBLIC__/common/images/logo-1.png">
+                <img class="img-responsive center-block" src="__PUBLIC__/common/images/logo1.png">
             </div>
             <ul class="name">
-                <li><a href="#">用户</a></li>
+                <li><a href="#">{$Think.session.username}</a></li>
+                <li><a href="{:url('admin/login/tc')}">退出</a></li>
             </ul>
         </div>
 
     </div>
     <div id="contents">
         <div class="container">
-            <div id="content-left" class="col-md-2" style="background:white;border-right:1px solid #b3b3b3;">
+            <div id="content-left" class="col-md-2">
                 <div class="menu_box">
                     <ul class="menu_box_ul">
-                        <li>
-                         <ul class="sub_menu">
-                            <li class="menu_index"><a href="#" target="main"><i class="fa fa-fw fa-home"></i>首页</a></li>
-                         </ul>
-                        </li>
-
                         <li>
                         <h4><i class="fa fa-fw fa-clipboard"></i>资讯中心</h4>
                         <ul class="sub_menu">
@@ -53,15 +49,21 @@
                     </ul>
                 </div>
             </div>
-            <div id="content-right" class="col-md-10" style="background:white;">
-                <div class="result_wrap" name="main">nijd</div>
+            <div id="content-right" class="col-md-10">
+                <div class="result_wrap" name="main"><h3 style="color:#ffa36a;">欢迎登录管理平台!</h3></div>
             </div>
         </div>
 
     </div>
-    <div id="footer" style="background-color: #0f0f0f">
-        <h3 class="text-center">网站后台</h3>
-        <p class="text-center">蛋蛋制造蛋蛋制造蛋蛋制造蛋蛋制造蛋蛋制造蛋蛋制造蛋蛋制造蛋蛋制造蛋蛋制造蛋蛋制造蛋蛋制造蛋蛋制造蛋蛋制造蛋蛋制造蛋蛋制造蛋蛋制造</p>
+    <div class="row foot-buttom">
+        <div class="col-sm-12">
+            <p class="text-center">
+                Copyright @ 2014-2017.
+                <a href="#">上海臧星阁文化发展有限公司</a>
+                All Rights Reserved
+                <a>沪ICP备xxxxxx号</a>
+            </p>
+        </div>
     </div>
     <script>
         $(function(){
