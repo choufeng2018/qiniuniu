@@ -524,13 +524,14 @@ a h4{
     }
     .carousel-box {
         height: 35%;
-        padding-top:16%;
+        padding-top:51px;
     }
     .banner {
         height:100%;
-        padding-top:16%;
+        padding-top:51px;
     }
     .nav > li{padding:4px 0;}
+    .swiper-button-next{background-size:16px;}
 }
 
 
