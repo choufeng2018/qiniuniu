@@ -107,6 +107,8 @@
 //
 //    })
 
+
+
     var checkPublish = function (data) {
         if(data.names == ""){
             alert("您还没有填写姓名呢");
@@ -143,8 +145,25 @@ $(".btn").on("click", function () {
         publish(data);
     }
 });
-var map = new BMap.Map("allmap");  // 创建Map实例
-map.centerAndZoom("上海",15);
+
+var script = document.createElement("script");
+script.type = "text/javascript";
+script.src = "http://api.map.baidu.com/api?v=2.0&ak=您的密钥&callback=init";
+document.body.appendChild(script);
+
+function init() {
+    var map = new BMap.Map("allmap");            // 创建Map实例
+
+
+    var map = new BMap.Map("allmap");
+    var point = new BMap.Point(121.618135,31.259959);
+    map.centerAndZoom(point,20);
+    map.enableScrollWheelZoom();                 //启用滚轮放大缩小
+    var marker = new BMap.Marker(point);  // 创建标注
+    map.addOverlay(marker);               // 将标注添加到地图中
+    marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+}
+window.onload = loadJScript;
 </script>
 </body>
 </html>
