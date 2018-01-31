@@ -28,7 +28,11 @@
             {volist name="info" id="vo"}
             <div class="col-sm-3 col-xs-6">
                 <a href="{:url('home/index/showDetail')}?id={$vo.id}">
-                    <div class="shadow-img"><img class="img-responsive" src="__PUBLIC__/common/images/{$vo.banner}"></div>
+                    <div class="shadow-img">
+                        <a href="{:url('home/index/showDetail')}?id={$vo.id}">
+                        <img class="img-responsive" src="__PUBLIC__/common/images/{$vo.banner}">
+                        </a>
+                    </div>
                 </a>
                 <a href="{:url('home/index/showDetail')}?id={$vo.id}">
                     <h4>{$vo.title}</h4>
