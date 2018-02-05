@@ -121,7 +121,7 @@
                         <div class="col-sm-10">
                             <button class="btn btn-success btn-img">点此上传封面</button>
                             <input type="text" class="form-control hide" id="img-input" name="banner"  placeholder="">
-                            <img class="article-cover" src="#" style="display: none;">
+                            <img class="article-cover" src="#" style="display: none;" id="jj">
                             <span class="btn .btn-danger">上传该分类下的图片(图片尺寸：390*210)</span>
                         </div>
                     </div>
@@ -218,7 +218,13 @@
     })
     // 发布
     $(".btn-publish").on("click", function () {
-
+        var imgWidth = document.getElementById("jj").width;
+        var imgHeight = document.getElementById("jj").height;
+        if(!(imgWidth==390&&imgHeight==210)){
+            alert("图片尺寸不合格，请上传规格为390px*210px的图片");
+            $(".article-cover").hide();
+            return false;
+        }
         var data={};
         var edit = $("#edit").val();
         console.log(edit);
@@ -237,6 +243,22 @@
         data.banner = $("#img-input").val();
         data.abstract = $("#abstract").val();
         //console.log(data);
+        if($("#title").val()==""){
+            alert("请填写文章标题")
+            return false;
+        } if($("#author").val()==""){
+            alert("请填写作者")
+            return false;
+        } if($("#source").val()==""){
+            alert("请填写来源")
+            return false;
+        } if($("#abstract").val()==""){
+            alert("请填写文章摘要")
+            return false;
+        }if($("#emditor-sm-box").val()==""){
+            alert("请填写文章正文")
+            return false;
+        }
         $.ajax({
             url: url,
             type:"POST",

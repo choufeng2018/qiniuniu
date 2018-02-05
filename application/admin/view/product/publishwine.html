@@ -174,7 +174,7 @@
                         <div class="col-sm-10">
                             <button class="btn btn-success btn-img">点此上传产品封面</button>
                             <input type="text" class="form-control hide" id="img-input" name="banner"  placeholder="">
-                            <img class="article-cover" src="#" style="display: none;">
+                            <img class="article-cover" src="#" style="display: none;" id="jj">
                             <span class="btn .btn-danger">上传该分类下的图片(图片尺寸：320*450)</span>
                         </div>
                     </div>
@@ -262,7 +262,13 @@
     })
     // 发布
     $(".btn-publish").on("click", function () {
-
+        var imgWidth = document.getElementById("jj").width;
+        var imgHeight = document.getElementById("jj").height;
+        if(!(imgWidth==320&&imgHeight==450)){
+            alert("图片尺寸不合格，请上传规格为320px*450px的图片");
+            $(".article-cover").hide();
+            return false;
+        }
         var data={};
         var edit = $("#edit").val();
         console.log(edit);
@@ -290,6 +296,55 @@
         data.banner = $("#img-input").val();
         data.desc = $("#desc").val();
         //console.log(data);
+        if($("#etitle").val()==""){
+            alert("请填写英文标题")
+            return false;
+        }if($("#title").val()==""){
+            alert("请填写中文标题")
+            return false;
+        }if($("#productarea").val()==""){
+            alert("请填写红酒产地")
+            return false;
+        }if($("#year").val()==""){
+            alert("请填写红酒年份")
+            return false;
+        }if($("#kind").val()==""){
+            alert("请填写红酒品种")
+            return false;
+        }if($("#vol").val()==""){
+            alert("请填写红酒酒精度")
+            return false;
+        }if($("#referprice").val()==""){
+            alert("请填写参考价格")
+            return false;
+        }if($("#winesupply").val()==""){
+            alert("请填写酒品提供")
+            return false;
+        }if($("#appearance").val()==""){
+            alert("请填写酒品外观评分")
+            return false;
+        }if($("#aroma").val()==""){
+            alert("请填写酒品香气评分")
+            return false;
+        }if($("#taste").val()==""){
+            alert("请填写酒品滋味评分")
+            return false;
+        }if($("#quality").val()==""){
+            alert("请填写酒品总质量评分")
+            return false;
+        }if($("#basescore").val()==""){
+            alert("请填写酒品基本分")
+            return false;
+        }if($("#totalscore").val()==""){
+            alert("请填写酒品总评分")
+            return false;
+        }if(imgWidth==0&&imgHeight==0){
+            alert("请上传图片")
+            return false;
+        }if($("#desc").val()==""){
+            alert("请填写产品描述")
+            return false;
+        }
         $.ajax({
             url: url,
             type:"POST",
