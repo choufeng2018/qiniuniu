@@ -38,7 +38,7 @@ a {color:#333; text-decoration: none; }
     border:1px solid #a55c3f;
 }
 
-.zx-title
+
 
 #allmap{overflow:hidden;
     margin:0;
@@ -413,6 +413,10 @@ a h4{
 }
 
 @media (max-width: 768px) {
+    .neirong img{
+        width: 100%;
+    }
+    
     body{font-size: 1.3rem;}
 
     b{font-weight: normal;}
