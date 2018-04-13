@@ -13,10 +13,35 @@
  */
 namespace app\home\controller;
 header("Content-type:text/html;charset=utf-8");
+
+use app\exception\Handler;
 use think\Controller;
+use think\Request;
 
 class Mail extends Controller
 {
+//    发送需求邮件
+    public function message(){
+        if(cookie('send_mail')){
+            return Handler::fail('已收到您的请求，请勿频繁操作');
+        }
+        $post = Request::instance()->post();
+        if(key_exists('names',$post)&&key_exists('phone',$post)&&key_exists('emails',$post)&&key_exists('xuqiu',$post)) {
+            $mailbody['name'] = "<a style='font-size:16px;color:#000;font-family:微软雅黑;text-decoration:none;'>姓名:" . $post['names'] . "</a><br/>";
+            $mailbody['phone'] = "<a style='font-size:16px;color:#000;font-family:微软雅黑;text-decoration:none;'>电话:" . $post['phone'] . "</a><br/>";
+            $mailbody['email'] = "<a style='font-size:16px;color:#000;font-family:微软雅黑;text-decoration:none;'>邮箱:" . $post['emails'] . "</a><br/>";
+            $mailbody['request'] = "<a style='font-size:16px;color:#000;font-family:微软雅黑;text-decoration:none;'>需求:" . $post['xuqiu'] . "</a><br/>";
+            $str = implode('', $mailbody);
+            $res = send_mail($post['emails'], $post['names'], $str);
+            if ($res) {
+                cookie('send_mail', 'hahaha', 3600);
+                return Handler::success('留言成功');
+            }
+        }
+        return Handler::fail('留言失败，请再试一次');
+    }
+
+
 
     //发送邮箱验证码
     public function email()

@@ -60,9 +60,9 @@
         <div class="col-sm-12">
             <div class="col-sm-4"></div><!--空标签-->
             <ul class="nav n col-sm-4" id="box">
-                <li class="active content"><a data-toggle="tab" href="#home">行业动态</a></li>
-                <li class="content"><a data-toggle="tab" href="#menu1">公司新闻</a></li>
-                <li class="content"><a data-toggle="tab" href="#menu2">红酒百科</a></li>
+                <li class="content {if(!isset($cat)||$cat==1)}active{/if}"><a href="{:url('home/index/showinfo')}">行业动态</a></li>
+                <li class="content {if($cat==2)}active{/if}"><a href="{:url('home/index/showinfo',['cat'=>2])}">公司新闻</a></li>
+                <li class="content {if($cat==3)}active{/if}"><a href="{:url('home/index/showinfo',['cat'=>3])}">红酒百科</a></li>
             </ul>
             <div class="col-sm-4"></div><!--空标签-->
             <div class="tab-content col-sm-12">
@@ -70,127 +70,24 @@
                     <div class="row  zx-margin">
                         {volist name="info" id="vo"}
                         <div class="col-sm-4  col-lg-4">
-                            <a href="#"><img class="img-responsive center-block" src="__PUBLIC__/upload/{$vo.banner}"></a>
+                            <a href="{:url('home/index/showzxDetail')}?id={$vo.id}"><img class="img-responsive center-block" src="__PUBLIC__/upload/{$vo.banner}"></a>
 
                             <div class="zx-title">
-                                <h5>{$vo.title}</h5>
+                                <a href="{:url('home/index/showzxDetail')}?id={$vo.id}"><h5>{$vo.title}</h5></a>
                                 <p><u>{$vo.time|date="Y-m-d",###}</u></p>
                                 <p>
                                     <a href="{:url('home/index/showzxDetail')}?id={$vo.id}" >
-                                        {$vo.content|mb_substr=0,50,'utf-8'}...
+                                        {$vo.abstract|mb_substr=0,50,'utf-8'}...
                                     </a>
                                 </p>
                             </div>
 
                         </div>
                         {/volist}
-
-
-<!--                        <div class="col-sm-4">
-                            <a href="{:url('home/index/ZXxianqin')}"><img class="img-responsive center-block" src="__PUBLIC__/common/images/zx-2.png"></a>
-
-                            <div class="zx-title">
-                                <h5>黑皮诺（Pinot Noir）</h5>
-                                <p><u>2018.01.01</u></p>
-                                <p class="overflow overflow-3">
-                                    <a href="{:url('home/index/ZXxianqin')}">黑皮诺（Pinot Noir）很可能原产自法国东北部，并在欧洲广泛种植。在罗马统治时代之前，
-                                        高卢人就在勃艮第（Burgundy）地区种植黑皮诺，黑皮诺在该地区表现最好，也最为世人称道。截至1995年科学家共培育出近800个黑皮诺克隆系。
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-4">
-                            <a href="{:url('home/index/ZXxianqin')}"><img class="img-responsive center-block" src="__PUBLIC__/common/images/zx-3.png"></a>
-                            <div class="zx-title">
-                                <h5>雷司令（Riesling）</h5>
-                                <p><u>2018.01.01</u></p>
-                                <p class="overflow overflow-3">
-                                    <a href="{:url('home/index/ZXxianqin')}">雷司令（Riesling）是德国最古老的葡萄品种之一，该品种于1435年第一次在文献中被提及，
-                                        很可能起源于德国的莱茵高（Rheingau）地区。DNA检测结果表明，雷司令与西欧最古老、多产的葡萄品种之一——白高维斯（Gouais Blanc）之间存在亲子关系。因为
-                                        白高维斯同时还与霞多丽（Chardonnay）、佳美（Gamay）和艾伯灵（Elbling）等至少8个葡萄品种存在亲子关系，因而雷司令也与这些品种或多或少存在着“血缘关系”。
-
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row zx-margin">
-                        <div class="col-sm-4">
-                            <a href="{:url('home/index/ZXxianqin')}"><img class="img-responsive center-block" src="__PUBLIC__/common/images/zx-4.png"></a>
-
-                            <div class="zx-title">
-                                <h5>梅洛（Merlot）</h5>
-                                <p><u>2018.01.01</u></p>
-                                <p class="overflow overflow-3">
-                                    <a href="{:url('home/index/ZXxianqin')}">梅洛（Merlot）的原产地是法国，其最早的文献记载可追溯到1783年左右，流传于吉伦特省（Gironde）的利布尔
-                                        讷市（Libourne），“Merlau可以酿造颜色深浓的绝妙的美酒，适合在富饶的土壤中生长”。梅洛也曾被人们唤作“河里的葡萄苗”，因为人们普遍认为，梅洛是诞生在加
-                                        龙河（Garonne）中的一个岛屿上。直到1824年，梅洛才正式更名为现在使用的名字——Merlot。
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <a href="{:url('home/index/ZXxianqin')}"><img class="img-responsive center-block" src="__PUBLIC__/common/images/zx-5.png"></a>
-
-                            <div class="zx-title">
-                                <h5>霞多丽（Chardonnay）</h5>
-                                <p><u>2018.01.01</u></p>
-                                <p class="overflow overflow-3">
-                                    <a href="{:url('home/index/ZXxianqin')}">霞多丽（Chardonnay）原产于法国索恩鲁瓦尔省（Saone-et-Loire），里昂（Lyon）和第戎（Dijon）
-                                        之间，主要在金丘（Cote d' Or）、索恩鲁瓦尔（Saone-et-Loire）和马恩（Marne）产区。该品种在17世纪就有种植记录，得名于勃艮第南部马贡（Maconnais
-                                        ）产区的霞多丽村。霞多丽在历史上有多个拼法，如“Chardenet”、“Chardonnet”和“Chardenay” 等等，直到20世纪才被称作“Chardonnay”。
-
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <a href="#"><img class="img-responsive center-block" src="__PUBLIC__/common/images/zx-6.png"></a>
-                            <div class="zx-title">
-                                <h5>长相思（Sauvignon Blanc）</h5>
-                                <p><u>2018.01.01</u></p>
-                                <p class="overflow overflow-3">
-                                    <a href="{:url('home/index/ZXxianqin')}">作为一个芳香型的白葡萄品种，长相思（Sauvignon Blanc）的香气与红葡萄品种
-                                        赤霞珠（Cabernet Sauvignon）有几分相似，都有类似于草本植物的香气。1997年，DNA检测证实品丽珠（Cabernet Franc）和长相思是赤霞珠的双亲，
-                                        而在18世纪左右，长相思和品丽珠在波尔多（Bordeaux）葡萄园里自然杂交产生了赤霞珠，因此，长相思的起源地常被认为是
-                                        波尔多。然而事实上，长相思最早于1534年在卢瓦尔河谷（Loire Valley）被提及。如今，奥地利进行的DNA检测进一步表明，长相思的起源可能
-                                        与白诗南（Chenin Blanc）及塔明娜（Traminer）有关。
-                                    </a>
-                                </p>
-                            </div>
-                        </div>-->
                     </div>
                     <div class="row btnprimary">
-                        <!--<nav aria-label="Page navigation">
-                            <ul class="pagination" style="margin:0;">
-                                <li>
-                                    <a href="#" aria-label="Previous">
-                                        <span aria-hidden="true">上一页</span>
-                                    </a>
-                                </li>
-                                <li class="active"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li>
-                                    <a href="#" aria-label="Next">
-                                        <span aria-hidden="true">下一页</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>-->
                         {$info->render()}
                     </div>
-                </div>
-                <div id="menu1" class="tab-pane fade">
-                    <h3>暂无内容</h3>
-
-                </div>
-                <div id="menu2" class="tab-pane fade">
-                    <h3>暂无内容</h3>
-
                 </div>
             </div>
         </div>

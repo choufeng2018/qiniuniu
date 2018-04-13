@@ -53,9 +53,10 @@ class Index extends Controller{
         }
 
     //显示红酒资讯
-    public function showInfo(){
-        $info = Db::table("product")->order('id desc')->paginate(6);
+    public function showInfo($cat=1){
+        $info = Db::table("product")->where('cid',$cat)->order('time desc')->paginate(6);
         $this->assign('info',$info);
+        $this->assign('cat',$cat);
         return $this->fetch('zhixun');
     }
 

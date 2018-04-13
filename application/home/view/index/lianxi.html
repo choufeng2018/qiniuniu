@@ -65,7 +65,7 @@
             <img class="img-responsive center-block" src="__PUBLIC__/common/images/xuqiu.png" style="margin-top: 30px;">
         </div>
         <div class="col-sm-6 lx-form">
-            <form method="post" action="{:url('home/mail/email')}" id="form1" name="form1">
+            <form method="post" action="" onsubmit="return send_email()" id="form1" name="form1">
                 <div class="form-group">
                     <label for="names">姓名：</label>
                     <input type="text" class="form-control" name="names" id="names" value="" placeholder="姓名...">
@@ -128,23 +128,49 @@
         }
         if(data.xuqiu == ""){
             alert("请您填写需求");
-            return false;}
-
+            return false;
+        }
+        return true;
     }
 
-$(".btn").on("click", function () {
-    var data = {};
-    data.names = $("#names").val();
-    data.phone = $("#phone").val();
-    data.Email1 = $("#Email1").val();
-    data.xuqiu = $("#xuqiu").val();
-
-
-    console.log(data);
-    if(checkPublish(data)){
-        publish(data);
+    function send_email() {
+        var data = {};
+        data.names = $("#names").val();
+        data.phone = $("#phone").val();
+        data.emails = $("#Email1").val();
+        data.xuqiu = $("#xuqiu").val();
+        if(!checkPublish(data)){
+            return false;
+        }
+        $.ajax({
+            url: "{:url('home/mail/message')}",
+            data: data,
+            type: "POST",
+            success: function (res) {
+                if(res.state=='success'){
+                    alert(res.msg);
+                    $("#form1")[0].reset();
+                }else if(res.state="fail"){
+                    alert(res.msg);
+                }
+            }
+        });
+        return false;
     }
-});
+
+// $(".btn").on("click", function () {
+//     var data = {};
+//     data.names = $("#names").val();
+//     data.phone = $("#phone").val();
+//     data.Email1 = $("#Email1").val();
+//     data.xuqiu = $("#xuqiu").val();
+//
+//
+//     console.log(data);
+//     if(checkPublish(data)){
+//         publish(data);
+//     }
+// });
 
 var script = document.createElement("script");
 script.type = "text/javascript";
