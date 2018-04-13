@@ -38,6 +38,8 @@ a {color:#333; text-decoration: none; }
     border:1px solid #a55c3f;
 }
 
+.zx-title
+
 #allmap{overflow:hidden;
     margin:0;
     font-family:"΢���ź�";
@@ -247,7 +249,14 @@ a h4{
 .btn-more>a:hover{text-decoration: none;}
 
 /*!*�����Ѷ*!*/
-
+.zx-title p:last-child a{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+    height: 3em;
+}
 .zx-title>a>h5{font-size:16px;color: #a55c3f;}
 .zx-title>p>u{color:#666;font-size: 12px;}
 .zx-title>p>a:hover{color: #a55c3f;}
