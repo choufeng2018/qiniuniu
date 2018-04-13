@@ -255,10 +255,11 @@
         } if($("#abstract").val()==""){
             alert("请填写文章摘要")
             return false;
-        }if($("#emditor-sm-box").val()==""){
-            alert("请填写文章正文")
-            return false;
         }
+        // if($("#emditor-sm-box").val()==""){
+        //     alert("请填写文章正文")
+        //     return false;
+        // }
         $.ajax({
             url: url,
             type:"POST",
