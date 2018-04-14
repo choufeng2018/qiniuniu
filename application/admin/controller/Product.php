@@ -19,7 +19,7 @@ class Product extends Controller{
         $this->assign('list',$list);
         return $this->fetch();
     }
-    
+
     //添加产品
     public function addProduct(){
         $data = Request::instance()->post();
