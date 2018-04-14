@@ -20,6 +20,7 @@ class Product extends Controller{
         return $this->fetch();
     }
 
+    
     //添加产品
     public function addProduct(){
         $data = Request::instance()->post();
