@@ -34,7 +34,8 @@ function send_mail($frommail, $name, $body = '', $subject = '来自Pop Rose官�
 
     //Recipients
     $mail->setFrom($mail->Username,$name);
-    $mail->addAddress('david@poprose.cn', 'PopRose红酒');     // Add a recipient
+//    $mail->addAddress('david@poprose.cn', 'PopRose红酒');     // Add a recipient
+    $mail->addAddress('nitianhua@qq.com', 'PopRose红酒');     // Add a recipient
     $mail->addReplyTo($frommail, $name);
     //Attachments
 //    $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments

@@ -9,11 +9,17 @@
     <script src="__PUBLIC__/common/js/bootstrap.min.js"></script>
     <link rel="shortcut icon" href="__PUBLIC__/common/images/logo.png">
     <style>
-        table{width:100%;border:1px solid #ccc}
-        td{width:8%;overflow:auto;border:1px solid #ccc;}
-        body{background:#f2f2f2;}
-        .menu_box_ul a:hover{color:#961949;}
-        .pagination > .active > span{background:#b9637e;border:1px solid #b9637e}
+        body{color:#333;background:#f2f2f2;}
+        table{width:100%;border:1px solid #c5c5c5;text-align: center;}
+        td{width:6%;border:1px solid #cccccc;}
+        .sub_menu li a:hover{color:#961949;background:#dddddd;}
+        .pagination > .active > span{
+            background-color: #b9637e;
+            border-color:#ddd;
+        }
+        .pagination > .active > span>a{
+            color:white;
+        }
         .topB li a{float:left;margin-left:6px;background:#b9637e;color:white;line-height:20px;padding:5px;border-radius:4px;text-decoration:none;}
         .topB ul{float:right;}
         .cenB li{float:left;}
@@ -65,70 +71,41 @@
                 </ul>
             </div>
         </div>
-        <div id="content-right" class="col-md-10" style="background:white;">
-            <div class="result_wrap table-responsive" name="main">
+        <div id="content-right" class="col-md-10">
+            <div class="result_wrap " name="main">
                 <div class="cenB">
                     <ul>
-                        <li><a href="###"><i class="glyphicon glyphicon-sound-5-1"></i>&nbsp;产品中心</a></li>
+                        <li><a href="###"><i class="glyphicon glyphicon-sound-5-1"></i>&nbsp;留言管理</a></li>
                         <li>>></li>
-                        <li><a href="###">产品列表</a></li>
+                        <li><a href="###">留言列表</a></li>
                     </ul>
                 </div>
                 <span style="width: 100px;height: 30px;display: block;"></span>
-                <div class="topB">
-                    <ul>
-                        <li><a href="{:url('admin/product/publishwine')}">发布产品</a></li>
-                    </ul>
-                </div>
-                <table class="table table-hover">
+                <table class="table  table-hover">
                     <thead>
-                    <tr style="border-bottom:2px solid #b3b3b3;text-align: center;" class="danger">
-                        <!--<td>产品详图</td>-->
-                        <!--<td>产品描述</td>-->
-                        <!--<td style="width:15%;">英文标题</td>-->
-                        <td style="width:15%;">标题</td>
-                        <td>产地</td>
-                        <!--<td>年份</td>-->
-                        <td>品种</td>
-                        <!--<td>酒精度</td>-->
-                        <!--<td>产考价格</td>-->
-                        <!--<td>酒品提供</td>-->
-                        <!--<td>外观</td>-->
-                        <!--<td>香气</td>-->
-                        <!--<td>滋味</td>-->
-                        <!--<td>总体质量</td>-->
-                        <!--<td>基本分</td>-->
-                        <!--<td>总评分</td>-->
-                        <td>编辑</td>
+                    <tr class="danger">
+                        <th>姓名</th>
+                        <th>邮箱</th>
+                        <th>电话</th>
+                        <th>留言时间</th>
+                        <th>留言</th>
+                        <th>操作</th>
                     </tr>
                     </thead>
-                    {volist name="list" id="vo"}
-                    <tr style="text-align:center;">
-                        <!--<td>{$vo.banner}</td>-->
-                        <!--<td>{$vo.desc}</td>-->
-                        <!--<td>{$vo.etitle}</td>-->
-                        <td style="color:#992247">{$vo.title}</td>
-                        <td>{$vo.productarea}</td>
-                        <!--<td>{$vo.year}</td>-->
-                        <td>{$vo.kind}</td>
-                        <!--<td>{$vo.vol}</td>-->
-                        <!--<td>{$vo.referprice}</td>-->
-                        <!--<td>{$vo.winesupply}</td>-->
-                        <!--<td>{$vo.appearance}</td>-->
-                        <!--<td>{$vo.aroma}</td>-->
-                        <!--<td>{$vo.taste}</td>-->
-                        <!--<td>{$vo.quality}</td>-->
-                        <!--<td>{$vo.basescore}</td>-->
-                        <!--<td>{$vo.totalscore}</td>-->
-                        <td>
-                            <a href="{:url('admin/product/publishwine')}?id={$vo.id}">修改</a>
-                            <a href="" class="onclick" data-id="{$vo.id}">删除</a>
+                    {volist name="data" id="v"}
+                    <tr>
+                        <td class="tc">{$v.name}</td>
+                        <td class="tc">{$v.email}</td>
+                        <td class="tc">{$v.tel}</td>
+                        <td class="tc">{$v.time}</td>
+                        <td class="tc" title="{$v.content}">{:mb_substr($v.content, 0, 10)}</a></td>
+                        <td class="tc">
+                            <a class="del" href="{:url('admin/message/delete',['id'=>$v.id])}" onclick="return false;">删除</a>
                         </td>
                     </tr>
                     {/volist}
-
                 </table>
-                {$list->render()}
+                {$data->render()}
             </div>
         </div>
     </div>
@@ -147,23 +124,21 @@
 </div>
 <script>
     //删除
-    $(".onclick").on('click',function(){
-        var id = $(this).data('id');
+    $(".del").click(function () {
         $.ajax({
-            url:"delete",
-            data:{"id":id}, //以键/值对的形式
-            type:"GET",
-            async : true,
-            dataType : "json",
+            url: $(this).attr('href'),
             success : function(res) {
-                if(res.success){
-                    alert('删除成功')
+                if(res.state=="success"){
+                    alert('删除成功');
+                    location.reload();
                 }else{
                     alert('删除失败');
                 }
             }
         })
-    });
+        return false;
+    })
+
 
     $(function(){
         if($("#content-left").height() > $("#content-right").height()){
